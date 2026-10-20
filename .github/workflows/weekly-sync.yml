@@ -1,0 +1,58 @@
+name: Weekly OCA sync & scan
+
+on:
+  schedule:
+    - cron: "0 9 * * 5"          # Friday 05:00 America/Toronto (EDT); 04:00 in winter
+  workflow_dispatch:
+    inputs:
+      repos:
+        description: "Space-separated repo names (empty = all enabled in repos.csv)"
+        required: false
+        default: ""
+
+concurrency:
+  group: oca-sync
+  cancel-in-progress: false
+
+jobs:
+  sync-and-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      # Fine-grained PAT or GitHub App token for the BADEP org:
+      #   Repository: contents RW, pull requests RW, issues R, administration RW (fork creation)
+      #   on all BADEP repos; public read on OCA.
+      GH_TOKEN: ${{ secrets.BADEP_GH_TOKEN }}
+      OCA_WORK_DIR: ${{ github.workspace }}/.work
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Git identity
+        run: |
+          git config --global user.name  "BADEP OCA bot"
+          git config --global user.email "oca-bot@badep.ca"
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+      - name: Sync forks
+        run: python3 scripts/sync_forks.py ${{ github.event.inputs.repos }}
+      - name: Scan
+        run: python3 scripts/scan.py ${{ github.event.inputs.repos }}
+      - name: Summary
+        run: python3 scripts/report.py
+      - name: Commit report
+        run: |
+          git add reports repos.csv
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "[REPORT] weekly scan $(date -u +%F)"
+          git push
+      - name: Upload work notes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-notes
+          path: .work/sync-*.json
+          if-no-files-found: ignore

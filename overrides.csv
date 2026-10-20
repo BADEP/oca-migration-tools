@@ -1,0 +1,3 @@
+repo,module,relevancy_override,status_override,note
+# Manual decisions that survive every run. relevancy_override: relevant | native-in-target | deprecated-upstream | skip
+# status_override: skip | priority

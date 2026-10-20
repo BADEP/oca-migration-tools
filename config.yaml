@@ -1,0 +1,62 @@
+# BADEP OCA migration tooling — configuration
+# Edit freely; both the GitHub Actions workflow and the Claude scheduled task read this file.
+
+org: BADEP                 # GitHub org holding the forks
+upstream_org: OCA
+target: "20.0"             # branch being migrated to; next year: "21.0"
+sources: ["19.0", "18.0", "17.0"]   # newest first; a module is ported from the newest branch holding it
+
+# Deterministic sync (GitHub Actions)
+sync:
+  create_missing_forks: true
+  # source branches are mirrors of OCA: fast-forward only; divergence is reported, never forced
+  source_branch_policy: ff-only
+  # target branch = OCA/<target> + our merged migrations; OCA wins every conflict
+  target_conflict_policy: prefer-upstream
+
+# Scan
+scan:
+  run_oca_port_dry_run: false   # expensive; enable to add oca-port's own analysis to the CSV
+  claim_sources: [migration_issue, open_prs]
+  # PyPI downloads of odoo-addon-<module> used to prioritise: day | week | month | overall
+  # (overall = everything pypistats.org retains, about the last 180 days)
+  downloads_window: overall
+  max_dependency_depth: 6
+
+# Migration (Claude scheduled task)
+migrate:
+  enabled: true
+  max_modules_per_run: 25
+  time_budget_minutes: 180
+  # merge the 20.0-mig-* branch into the fork's target branch when: ci_pass | always | never
+  merge_into_target_when: ci_pass
+  # relevancy is permissive: only these verdicts skip a module
+  skip_verdicts: [native-in-target, deprecated-upstream]
+  ai_trailer: "Assisted-by: Claude (Anthropic)"
+  # subagent models used by the Claude task
+  models:
+    plumbing: haiku
+    relevancy: opus
+    repair: opus
+    summary: sonnet
+
+# Repos that are tooling, not addons: never migrated even if added to repos.csv
+exclude_repos:
+  - OCB
+  - OpenUpgrade
+  - openupgradelib
+  - maintainer-tools
+  - maintainer-quality-tools
+  - oca-addons-repo-template
+  - odoo-module-migrator
+  - oca-port
+  - oca-ci
+  - oca-github-bot
+  - odoo-pre-commit-hooks
+  - pylint-odoo
+  - pytest-odoo
+  - odoorpc
+  - ansible-odoo
+  - odoo-community.org
+  - .github
+exclude_repo_prefixes: ["l10n-"]
