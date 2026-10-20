@@ -23,6 +23,7 @@ jobs:
       #   Repository: contents RW, pull requests RW, issues R, administration RW (fork creation)
       #   on all BADEP repos; public read on OCA.
       GH_TOKEN: ${{ secrets.BADEP_GH_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.BADEP_GH_TOKEN }}   # read by oca-port
       OCA_WORK_DIR: ${{ github.workspace }}/.work
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +32,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pyyaml
+      - name: Tooling (pyyaml, OCA oca-port)
+        run: |
+          pip install pyyaml
+          pipx install oca-port || pip install oca-port
+          oca-port --help > /dev/null && echo "oca-port ok"
       - name: Git identity
         run: |
           git config --global user.name  "BADEP OCA bot"

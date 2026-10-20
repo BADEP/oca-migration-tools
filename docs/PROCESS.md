@@ -47,7 +47,7 @@ Needs the `BADEP_GH_TOKEN` secret. Runs `scripts/sync_forks.py` → `scripts/sca
 | script | does |
 |---|---|
 | `sync_forks.py` | create missing forks; ff source branches; merge OCA/target into ours (OCA wins); rebase our mig branches; delete mig branches merged upstream |
-| `scan.py` | per repo: modules missing on OCA/target, newest source branch, migration-issue claims, open `[MIG]` PRs, recursive dependency status (core / OCA target / open PR / missing), our branch & PR & CI state, PyPI downloads (`scan.downloads_window`) |
+| `scan.py` | per repo: modules missing on OCA/target, newest source branch, migration-issue claims, open `[MIG]` PRs, recursive dependency status (core / OCA target / open PR / missing), our branch & PR & CI state, PyPI downloads (`scan.downloads_window`), oca-port dry-run analysis (`scan.run_oca_port_dry_run`) |
 | `report.py` | totals, per-repo table, delta vs. previous run |
 
 ### Part 2 — Claude scheduled task (07:00)
@@ -99,7 +99,7 @@ For every row in `pr-to-fork` / `merged-in-fork` with green CI:
 ## CSV columns (`reports/<target>/<repo>.csv`)
 
 `repo, module, source_branch, in_upstream_target, relevancy, relevancy_rationale,
-claimed_by, upstream_open_pr, claim_age_days, downloads, deps, deps_status,
+claimed_by, upstream_open_pr, claim_age_days, downloads, oca_port, deps, deps_status,
 deps_blocking, our_mig_branch, our_fork_pr, ci, diff_lines, diff_review, self_maintained,
 status, last_run, notes`
 

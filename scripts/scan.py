@@ -15,10 +15,16 @@ import sys
 
 from common import (CONFIG, ORG, REPORT_DIR, SOURCES, TARGET, UP, WORK, ci_state,
                     ensure_clone, fork_open_prs, list_modules, load_overrides, load_repos,
-                    log, mig_branches, parse_migration_issue, pypi_downloads, read_report, run,
+                    log, mig_branches, oca_port_dry_run, parse_migration_issue, pypi_downloads,
+                    read_report, run,
                     upstream_migration_issue, upstream_open_mig_prs, write_report)
 
 TODAY = dt.date.today().isoformat()
+
+
+def path_of(repo):
+    from common import clone_path
+    return clone_path(repo)
 
 
 def core_addons() -> set[str]:
@@ -130,6 +136,10 @@ def build_rows(scans: dict[str, dict], core: set[str], overrides) -> dict[str, l
                 "upstream_open_pr": up_pr["url"] if up_pr else (f"#{claim['pr']}" if claim.get("pr") else ""),
                 "claim_age_days": "",
                 "downloads": pypi_downloads(module) or old.get("downloads", ""),
+                "oca_port": (oca_port_dry_run(path_of(repo), repo, module, source_branch)
+                             if CONFIG["scan"].get("run_oca_port_dry_run") and source_branch
+                             and module not in s["per_branch"][TARGET]
+                             else old.get("oca_port", "")),
                 "deps": " ".join(deps),
                 "deps_status": dstatus,
                 "deps_blocking": " ".join(dblock),

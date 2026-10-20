@@ -23,18 +23,25 @@ Implemented in `scripts/migrate_module.sh`:
 Data-model changes per core module: OpenUpgrade `upgrade_analysis.txt` files
 <https://github.com/OCA/OpenUpgrade> (used by the repair step).
 
-## OCA tools used
+## OCA tools: what calls what
 
-* **oca-port** <https://github.com/OCA/oca-port> — migration assistant / missing-commit
-  porter; `scan.run_oca_port_dry_run` adds its analysis to the CSV.
-* **odoo-module-migrator** <https://github.com/OCA/odoo-module-migrator> —
-  deterministic code transforms between versions; run before pre-commit.
-* **maintainer-tools** <https://github.com/OCA/maintainer-tools> — conventions, README
-  generator (`oca-gen-addon-readme`, run by pre-commit in OCA repos).
-* **oca-ci** — the forks keep OCA's `test.yml` workflow, so every PR to the fork runs the
-  same tests OCA will run.
-* **module-composition-analysis / odoo_repository_migration** — Odoo-side alternative to
-  these CSVs, built on oca-port; not used yet.
+| OCA tool | where it runs here | how |
+|---|---|---|
+| **Migration wiki procedure** (maintainer-tools wiki) | `scripts/migrate_module.sh` | the git commands transcribed step by step (format-patch/am, one pre-commit commit, `[MIG]` commit, version bump, `migrations/` removal, CREDITS cleanup) |
+| **oca-port** <https://github.com/OCA/oca-port> | `scripts/scan.py` → `common.oca_port_dry_run` (Actions, `scan.run_oca_port_dry_run`) | `oca-port upstream/<src> upstream/<target> <module> --dry-run --verbose`; its analysis (existing PRs, commits to bring) lands in the CSV column `oca_port`. Not used for the port itself: its porting mode is interactive, and for an addon missing on the target it performs the same wiki procedure `migrate_module.sh` runs non-interactively |
+| **odoo-module-migrator** <https://github.com/OCA/odoo-module-migrator> | `scripts/migrate_module.sh` step 3 | `odoo-module-migrate --modules <module> --init-version-name <src> --target-version-name <target>`; deterministic code transforms before pre-commit |
+| **pre-commit with OCA hooks** (`oca-gen-addon-readme`, `oca-gen-addon-icon`, `odoo-pre-commit-hooks`, `pylint-odoo`, `setuptools-odoo`/`whool` metadata) | `scripts/migrate_module.sh` step 4 | `pre-commit run -a` twice, using each repo's own `.pre-commit-config.yaml`; this is where the `maintainer-tools` package actually executes |
+| **oca-ci** (`test.yml` kept in every fork) | the forks' own GitHub Actions | tests every PR to the fork's target branch; `scan.py` reads the result into `ci` |
+| **OpenUpgrade `upgrade_analysis.txt`** | the Claude task's repair step | data-model changes per core module, given to the repair subagent |
+
+Installed by `bootstrap.sh` (task environment) and by the workflow (Actions):
+pre-commit, oca-port, odoo-module-migrator.
+
+Deliberately not used (OCA-side or release-time tooling, not addon migration):
+`oca-migrate-branch` (creates the new branch on OCA repos), `oca-towncrier` (changelogs
+at release), `oca-copier-update` (repo template refresh), the OCA GitHub bot and CI
+internals. `module-composition-analysis / odoo_repository_migration` is an Odoo-hosted
+alternative to these CSVs built on oca-port; noted, not adopted.
 
 ## Contribution conventions
 

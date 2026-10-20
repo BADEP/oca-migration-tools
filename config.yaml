@@ -16,7 +16,10 @@ sync:
 
 # Scan
 scan:
-  run_oca_port_dry_run: false   # expensive; enable to add oca-port's own analysis to the CSV
+  # OCA's oca-port in dry-run mode for every missing module: its own analysis of what a
+  # port involves (existing PRs, commits to bring) lands in the CSV column oca_port.
+  # Costs a few seconds and some GitHub API calls per module; set false to skip.
+  run_oca_port_dry_run: true
   claim_sources: [migration_issue, open_prs]
   # PyPI downloads of odoo-addon-<module> used to prioritise: day | week | month | overall
   # (overall = everything pypistats.org retains, about the last 180 days)

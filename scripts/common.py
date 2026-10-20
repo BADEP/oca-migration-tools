@@ -32,7 +32,7 @@ CSV_COLUMNS = [
     "repo", "module", "source_branch", "in_upstream_target",
     "relevancy", "relevancy_rationale",
     "claimed_by", "upstream_open_pr", "claim_age_days",
-    "downloads",
+    "downloads", "oca_port",
     "deps", "deps_status", "deps_blocking",
     "our_mig_branch", "our_fork_pr", "ci", "diff_lines", "diff_review", "self_maintained",
     "status", "last_run", "notes",
@@ -240,6 +240,51 @@ def ci_state(pr: dict | None) -> str:
     if any(s in ("", "PENDING", "IN_PROGRESS", "QUEUED", "EXPECTED") for s in states):
         return "pending"
     return "pass"
+
+
+# ---------------------------------------------------------------- oca-port
+
+def oca_port_dry_run(path: Path, repo: str, module: str, source: str) -> str:
+    """Run OCA's oca-port in dry-run mode: what it would do to bring <module> from
+    upstream/<source> to upstream/<target>. Returns a short, CSV-safe summary.
+
+    oca-port reads GITHUB_TOKEN for its PR lookups. Empty string when the tool is
+    missing or fails; the raw output is kept in .work/oca-port-<repo>-<module>.txt.
+    """
+    import shutil
+    if not shutil.which("oca-port"):
+        return ""
+    env = dict(os.environ)
+    env.setdefault("GITHUB_TOKEN", env.get("GH_TOKEN", ""))
+    base = ["oca-port", f"upstream/{source}", f"upstream/{TARGET}", module,
+            "--upstream-org", UP, "--repo-name", repo, "--dry-run", "--verbose"]
+    r = run(base + ["--output", "json"], cwd=path, check=False, env=env)
+    if r.returncode != 0 or not r.stdout.strip().startswith("{"):
+        r = run(base, cwd=path, check=False, env=env)
+    out = (r.stdout or "") + ("\n" + r.stderr if r.stderr else "")
+    (WORK / f"oca-port-{repo}-{module}.txt").write_text(out)
+    if r.returncode != 0 and not r.stdout.strip():
+        return ""
+    txt = r.stdout.strip()
+    if txt.startswith("{"):
+        try:
+            data = json.loads(txt)
+            proc = data.get("process") or data.get("action") or ""
+            prs = data.get("results", {}) or {}
+            n = len(prs) if isinstance(prs, dict) else 0
+            existing = data.get("existing_pr") or {}
+            bits = [proc or "analysed"]
+            if n:
+                bits.append(f"{n} PR(s) to port")
+            if existing:
+                bits.append(f"existing PR {existing.get('url', '')}")
+            return "; ".join(bits)[:200]
+        except json.JSONDecodeError:
+            pass
+    # plain text: keep the most informative lines, one line, CSV-safe
+    keep = [l.strip() for l in txt.splitlines()
+            if any(k in l.lower() for k in ("migrat", "port", "pull request", "pr ", "nothing", "already"))]
+    return " | ".join(keep[-3:]).replace(",", " ").replace("\n", " ")[:200]
 
 
 # ---------------------------------------------------------------- PyPI downloads
