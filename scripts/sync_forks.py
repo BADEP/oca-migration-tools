@@ -127,19 +127,34 @@ def sync_target_branch(path, repo, notes):
         run(["git", "push", "origin", "--delete", f"{TARGET}-mig-{m}"], cwd=path, check=False)
         notes["deleted_branches"].append(f"{TARGET}-mig-{m}")
 
-    # rebase surviving mig branches on fresh upstream target
+    # rebase surviving mig branches on fresh upstream target — only the module's own
+    # commits. Pre-existing branches may have been cut from BADEP/<target> (which carries
+    # other migrations), so rebase --onto from the merge-base with our target branch.
+    # A branch already merged into our target is left alone: it is history now.
     for b in mig_branches(path):
         m = b.removeprefix(f"{TARGET}-mig-")
         if m in merged_upstream:
             continue
+        if run(["git", "merge-base", "--is-ancestor", f"origin/{b}", "origin/" + TARGET],
+               cwd=path, check=False).returncode == 0:
+            notes.setdefault("merged_in_fork", []).append(m)
+            continue
+        base = run(["git", "merge-base", f"origin/{b}", f"origin/{TARGET}"], cwd=path, check=False).stdout.strip()
+        if not base:
+            notes["rebase_conflicts"].append(m + " (no merge-base)")
+            continue
+        if run(["git", "merge-base", "--is-ancestor", up, base], cwd=path, check=False).returncode == 0 \
+                and run(["git", "merge-base", "--is-ancestor", up, f"origin/{b}"], cwd=path, check=False).returncode == 0:
+            continue  # already on top of current upstream target
         run(["git", "checkout", "-q", "-B", b, f"origin/{b}"], cwd=path)
-        rr = run(["git", "rebase", up], cwd=path, check=False)
+        rr = run(["git", "rebase", "--onto", up, base], cwd=path, check=False)
         if rr.returncode != 0:
             run(["git", "rebase", "--abort"], cwd=path, check=False)
             notes["rebase_conflicts"].append(m)
             log(f"[{repo}] {b} does not rebase cleanly on {up}")
             continue
         run(["git", "push", "--force-with-lease", "origin", b], cwd=path, check=False)
+        notes.setdefault("rebased", []).append(m)
     run(["git", "checkout", "-q", TARGET], cwd=path, check=False)
 
 
