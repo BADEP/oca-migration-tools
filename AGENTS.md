@@ -10,8 +10,9 @@ migration process is here. Read in this order before acting:
 
 Hard rules, whatever the request:
 
-- Scripts first. `scripts/` does everything deterministic; AI is for relevancy verdicts
-  and CI-failure repair only. Do not re-implement a script's job by hand.
+- Scripts first. `scripts/` does everything deterministic; AI is for relevancy verdicts,
+  the post-migration diff review (bloat detection) and CI-failure repair only. Do not
+  re-implement a script's job by hand.
 - OCA wins every conflict in the forks' target branch.
 - Never open, review or comment on anything in the OCA organisation; never claim a module
   on OCA's migration issue. Those are human steps.

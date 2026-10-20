@@ -6,6 +6,7 @@
                                       capped by config.migrate.max_modules_per_run
   select_candidates.py repair      -> JSON list of our fork PRs whose CI is failing
   select_candidates.py set-relevancy <repo> <module> <verdict> "<rationale>"
+  select_candidates.py set-field <repo> <module> <column> "<value>"   (e.g. diff_review, notes)
 """
 from __future__ import annotations
 
@@ -59,6 +60,14 @@ def repair_candidates():
     return out
 
 
+def set_field(repo, module, column, value):
+    rows = read_report(repo)
+    if module not in rows:
+        sys.exit(f"{repo}/{module} not in report")
+    rows[module][column] = value
+    write_report(repo, list(rows.values()))
+
+
 def set_relevancy(repo, module, verdict, rationale):
     rows = read_report(repo)
     if module not in rows:
@@ -80,5 +89,7 @@ if __name__ == "__main__":
         print(json.dumps(repair_candidates(), indent=1))
     elif cmd == "set-relevancy":
         set_relevancy(*sys.argv[2:6])
+    elif cmd == "set-field":          # set-field <repo> <module> <column> "<value>"
+        set_field(*sys.argv[2:6])
     else:
         sys.exit(__doc__)

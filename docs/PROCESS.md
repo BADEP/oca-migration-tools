@@ -64,6 +64,14 @@ Prompt in [`docs/CLAUDE-TASK.md`](CLAUDE-TASK.md). Reads the fresh CSVs and:
    `scripts/migrate_module.sh <repo> <module> <source> [dep PRs…]`, then a PR against
    the fork's target branch (title `[20.0][MIG] <module>: Migration to 20.0`, concise
    body, AI assistance disclosed). The fork's own OCA CI workflow runs the tests.
+2b. **Review & bloat detection** (`scripts/diff_stats.py`) — the change between the
+   module on its source branch and the migrated branch is split into formatting
+   (pre-commit commit), dependency merges, and substantive lines. Above
+   `config.review` thresholds a review subagent on the task's default model checks that
+   every substantive change is explained by the migration, reverts what is not, and
+   labels the result; the label lands in `diff_review` (`formatting`,
+   `core-api-changes`, `data-model-changes`, `tests-added`, `bloat-suspected`,
+   `needs-human`). `diff_lines` holds the raw numbers.
 3. **Repair** (`select_candidates.py repair`) — for fork PRs whose CI failed: an Opus
    subagent gets the CI log, the diff, the
    [20.0 migration tasks](https://github.com/OCA/maintainer-tools/wiki/Migration-to-version-20.0)
@@ -90,7 +98,8 @@ For every row in `pr-to-fork` / `merged-in-fork` with green CI:
 
 `repo, module, source_branch, in_upstream_target, relevancy, relevancy_rationale,
 claimed_by, upstream_open_pr, claim_age_days, downloads, deps, deps_status,
-deps_blocking, our_mig_branch, our_fork_pr, ci, self_maintained, status, last_run, notes`
+deps_blocking, our_mig_branch, our_fork_pr, ci, diff_lines, diff_review, self_maintained,
+status, last_run, notes`
 
 Status lifecycle: `todo → in-progress → pr-to-fork → merged-in-fork →
 ready-for-upstream-pr → upstream-pr-open → merged-upstream`, with side exits

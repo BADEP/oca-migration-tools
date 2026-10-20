@@ -34,7 +34,7 @@ CSV_COLUMNS = [
     "claimed_by", "upstream_open_pr", "claim_age_days",
     "downloads",
     "deps", "deps_status", "deps_blocking",
-    "our_mig_branch", "our_fork_pr", "ci", "self_maintained",
+    "our_mig_branch", "our_fork_pr", "ci", "diff_lines", "diff_review", "self_maintained",
     "status", "last_run", "notes",
 ]
 

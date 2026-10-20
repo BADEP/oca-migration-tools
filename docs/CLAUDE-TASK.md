@@ -44,6 +44,25 @@ Migrate
    with AI assistance and awaits human testing. Nothing else in the body.
 8. Never open, comment on, or review anything in the OCA organisation.
 
+Review and bloat detection
+8a. For every module migrated or repaired this run:
+    `python3 scripts/diff_stats.py <repo> <module> <source_branch>`. Record
+    `substantive.added+deleted / source_lines` in the CSV column `diff_lines` via
+    `select_candidates.py set-field … diff_lines "<added>+<deleted> / <source_lines>"`.
+8b. If `needs_review` is true (thresholds in `config.review`), delegate to a review
+    subagent on `config.review.model` (the task's default model) with: the substantive
+    diff only (`git diff upstream/<source> origin/20.0-mig-<module> -- <module>`, minus
+    the pre-commit and [DEP] commits), the migration wiki tasks, and the question: is
+    every change explained by the version migration? It answers with labels from
+    `config.review.labels` and one clause each. If the review finds unexplained
+    changes, it may revert them (commit `[FIX] <module>: drop unneeded changes`,
+    `Assisted-by:` trailer) and must then re-run 8a.
+8c. Write the verdict with `select_candidates.py set-field … diff_review "<labels: clause>"`,
+    for example `formatting; core-api-changes: _rec_names_search replaces name_search`.
+    Below threshold, write `formatting` or `minimal` so the column is never empty for a
+    migrated module. `bloat-suspected` or `needs-human` must also be mentioned in the
+    PR body and in the run notes.
+
 Repair
 9. After the migrations are pushed, wait for CI on the new PRs (poll
    `gh pr checks` every few minutes, up to 40 minutes total). Then
