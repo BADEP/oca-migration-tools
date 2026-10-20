@@ -42,15 +42,16 @@ migrate:
 
 # AI review & bloat detection (after each migration, before the PR is considered done)
 review:
-  # a migration whose substantive change (formatting and dependency merges excluded)
-  # is at least bloat_min_lines AND bloat_ratio × the module's original size gets a
-  # second look by a review subagent; the verdict lands in the CSV column diff_review
-  bloat_min_lines: 150
-  bloat_ratio: 0.25
+  # scripts/diff_stats.py buckets the substantive change (formatting and dependency
+  # merges excluded) into python/xml/i18n/tests/docs/other net lines.
+  # No deep review when code buckets are zero (within tolerance) or the only change is
+  # a missing test suite; anything else is reviewed by a subagent and the verdict lands
+  # in the CSV column diff_review.
+  tolerance_lines: 0
   model: default        # the task's own model, not the cheap plumbing one
-  # allowed diff_review labels (comma-separate several): formatting | core-api-changes |
-  # data-model-changes | dependency-merge | tests-added | bloat-suspected | needs-human
-  labels: [formatting, core-api-changes, data-model-changes, dependency-merge, tests-added, bloat-suspected, needs-human]
+  # allowed diff_review labels (semicolon-separate several): formatting | tests-missing |
+  # core-api-changes | data-model-changes | dependency-merge | tests-added | bloat-suspected | needs-human
+  labels: [formatting, tests-missing, core-api-changes, data-model-changes, dependency-merge, tests-added, bloat-suspected, needs-human]
 
 # Repos that are tooling, not addons: never migrated even if added to repos.csv
 exclude_repos:

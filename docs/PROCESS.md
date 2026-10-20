@@ -65,13 +65,15 @@ Prompt in [`docs/CLAUDE-TASK.md`](CLAUDE-TASK.md). Reads the fresh CSVs and:
    the fork's target branch (title `[20.0][MIG] <module>: Migration to 20.0`, concise
    body, AI assistance disclosed). The fork's own OCA CI workflow runs the tests.
 2b. **Review & bloat detection** (`scripts/diff_stats.py`) — the change between the
-   module on its source branch and the migrated branch is split into formatting
-   (pre-commit commit), dependency merges, and substantive lines. Above
-   `config.review` thresholds a review subagent on the task's default model checks that
-   every substantive change is explained by the migration, reverts what is not, and
-   labels the result; the label lands in `diff_review` (`formatting`,
-   `core-api-changes`, `data-model-changes`, `tests-added`, `bloat-suspected`,
-   `needs-human`). `diff_lines` holds the raw numbers.
+   module on its source branch and the migrated branch, minus the pre-commit commit and
+   dependency merges, is bucketed into python / xml / i18n / tests / docs / other net
+   lines (same buckets as BADEP's original `oca_diff_report.py`). Zero code change →
+   `formatting`; only a negative tests bucket → `tests-missing` (flagged for the weekend);
+   anything else → a review subagent on the task's default model checks that every change
+   is explained by the migration (e.g. a core model dropped), reverts what is not, and
+   labels the result in `diff_review` (`core-api-changes`, `data-model-changes`,
+   `tests-added`, `bloat-suspected`, `needs-human`). `diff_lines` holds the buckets;
+   `scripts/diff_stats.py --all` regenerates `reports/<target>/diff_report.csv`.
 3. **Repair** (`select_candidates.py repair`) — for fork PRs whose CI failed: an Opus
    subagent gets the CI log, the diff, the
    [20.0 migration tasks](https://github.com/OCA/maintainer-tools/wiki/Migration-to-version-20.0)

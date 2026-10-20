@@ -40,9 +40,11 @@ bash scripts/migrate_module.sh server-tools base_technical_features 19.0
 ## Setup once
 
 1. Create the `BADEP_GH_TOKEN` repository secret (fine-grained PAT on the BADEP org:
-   contents RW, pull requests RW, issues R, administration RW for fork creation).
-2. Make sure GitHub Actions are enabled on the forks (the OCA `test.yml` workflow is what
-   tests our PRs).
+   contents RW, pull requests RW, issues R, administration RW for fork creation and
+   enabling Actions). Secrets are encrypted, never exposed in logs, and not available
+   to workflows triggered from other people's forks, so a public repo is fine.
+2. GitHub Actions on the forks are enabled by the sync script itself (the OCA `test.yml`
+   workflow is what tests our PRs; public repos have unlimited free minutes).
 3. Create the Claude scheduled task with the prompt in `docs/CLAUDE-TASK.md`.
 
 Nothing here opens pull requests on OCA. That step is human, after testing, and follows

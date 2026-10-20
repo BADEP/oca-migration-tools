@@ -39,6 +39,17 @@ def ensure_fork(repo: str) -> bool:
     return True
 
 
+def ensure_actions_enabled(repo: str, notes: dict):
+    """Forks have Actions disabled by default; OCA's test.yml is what tests our PRs.
+    Public repos: unlimited free minutes."""
+    cur = gh_json(["api", f"repos/{ORG}/{repo}/actions/permissions"])
+    if isinstance(cur, dict) and cur.get("enabled"):
+        return
+    r = run(["gh", "api", "-X", "PUT", f"repos/{ORG}/{repo}/actions/permissions",
+             "-F", "enabled=true", "-f", "allowed_actions=all"], check=False)
+    notes["actions"] = "enabled" if r.returncode == 0 else f"enable failed: {r.stderr.strip()[:120]}"
+
+
 def sync_source_branch(path, repo, branch, notes):
     if not branch_exists(path, f"upstream/{branch}"):
         return
@@ -140,6 +151,7 @@ def main(repos):
             if not ensure_fork(repo):
                 notes["fork"] = "missing"
                 continue
+            ensure_actions_enabled(repo, notes)
             path = ensure_clone(repo)
             for b in SOURCES:
                 sync_source_branch(path, repo, b, notes)

@@ -46,10 +46,12 @@ Migrate
 
 Review and bloat detection
 8a. For every module migrated or repaired this run:
-    `python3 scripts/diff_stats.py <repo> <module> <source_branch>`. Record
-    `substantive.added+deleted / source_lines` in the CSV column `diff_lines` via
-    `select_candidates.py set-field … diff_lines "<added>+<deleted> / <source_lines>"`.
-8b. If `needs_review` is true (thresholds in `config.review`), delegate to a review
+    `python3 scripts/diff_stats.py <repo> <module> <source_branch>`. Record the
+    substantive buckets in the CSV column `diff_lines` via
+    `select_candidates.py set-field … diff_lines "py:<n> xml:<n> i18n:<n> tests:<n> docs:<n> other:<n>"`.
+    If `auto_verdict` is `formatting` or `tests-missing`, write that as `diff_review`
+    and skip 8b (a missing test suite is flagged for the weekend, not reviewed).
+8b. If `needs_review` is true, delegate to a review
     subagent on `config.review.model` (the task's default model) with: the substantive
     diff only (`git diff upstream/<source> origin/20.0-mig-<module> -- <module>`, minus
     the pre-commit and [DEP] commits), the migration wiki tasks, and the question: is
