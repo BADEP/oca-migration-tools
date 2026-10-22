@@ -331,8 +331,15 @@ def write_report(repo: str, rows: list[dict]):
     log("wrote", p)
 
 
+NON_REPO_CSVS = {"diff_report"}   # other CSVs living in REPORT_DIR that are not per-repo reports
+
+
+def report_csvs() -> list:
+    return [p for p in sorted(REPORT_DIR.glob("*.csv")) if p.stem not in NON_REPO_CSVS]
+
+
 def all_reports() -> dict[str, dict[str, dict]]:
     out = {}
-    for p in sorted(REPORT_DIR.glob("*.csv")):
+    for p in report_csvs():
         out[p.stem] = read_report(p.stem)
     return out

@@ -12,12 +12,12 @@ import io
 import subprocess
 from collections import Counter, defaultdict
 
-from common import REPORT_DIR, ROOT, STATUSES, TARGET, all_reports
+from common import REPORT_DIR, ROOT, STATUSES, TARGET, all_reports, report_csvs
 
 
 def previous_reports() -> dict[str, dict[str, dict]]:
     out = {}
-    for p in REPORT_DIR.glob("*.csv"):
+    for p in report_csvs():
         r = subprocess.run(["git", "show", f"HEAD:{p.relative_to(ROOT)}"], cwd=ROOT,
                            capture_output=True, text=True)
         if r.returncode == 0:
