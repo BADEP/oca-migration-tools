@@ -40,6 +40,9 @@ fi
 git fetch -q upstream "$TARGET" "$SRC"
 git fetch -q origin "$TARGET" || true
 git fetch -q origin "$BRANCH" 2>/dev/null && EXISTS=1 || EXISTS=0
+# REBUILD=1: rebuild the branch from upstream/<target> even if it exists on the fork
+# (pushed with --force-with-lease below; an open fork PR stays open and updates).
+[ "${REBUILD:-0}" = 1 ] && EXISTS=0
 
 if [ "$EXISTS" = 1 ]; then
   echo "branch $BRANCH already exists on fork; rebasing on upstream/$TARGET"
@@ -62,9 +65,18 @@ for ref in "${DEP_PRS[@]:-}"; do
 done
 
 # 3. deterministic code transforms
+# odoo-module-migrator lags behind new Odoo versions: run it as far as it supports
+# (e.g. 17.0 -> 19.0 when 20.0 is not known yet); the remainder is left to review/repair.
 if command -v odoo-module-migrate >/dev/null; then
-  odoo-module-migrate --directory . --modules "$MODULE" --init-version-name "$SRC" \
-    --target-version-name "$TARGET" --no-commit --no-pre-commit || echo "odoo-module-migrate reported problems (continuing)"
+  OMM_MAX="$(odoo-module-migrate --help 2>&1 | tr -d '\n ' | grep -oE 'target-version-name\{[^}]*\}' | grep -oE '[0-9]+\.0' | sort -V | tail -1)"
+  OMM_TGT="$(printf '%s\n%s\n' "$TARGET" "${OMM_MAX:-$TARGET}" | sort -V | head -1)"
+  if [ "$(printf '%s\n%s\n' "$SRC" "$OMM_TGT" | sort -V | tail -1)" = "$SRC" ]; then
+    echo "odoo-module-migrate: no transforms available from $SRC (supports up to ${OMM_MAX:-?}); skipped"
+  else
+    echo "odoo-module-migrate: $SRC -> $OMM_TGT (supports up to ${OMM_MAX:-?}; target $TARGET)"
+    odoo-module-migrate --directory . --modules "$MODULE" --init-version-name "$SRC" \
+      --target-version-name "$OMM_TGT" --no-commit --no-pre-commit || echo "odoo-module-migrate reported problems (continuing)"
+  fi
 fi
 
 # 4. pre-commit, one commit

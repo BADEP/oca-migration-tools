@@ -59,8 +59,10 @@ fork attached with push access** (`add_repo`; without it git push and the GitHub
 403 for `BADEP/<repo>` and steps 2–4 below are impossible) and **pypi.org /
 files.pythonhosted.org allowed** in its network settings (`bootstrap.sh` installs
 pre-commit and odoo-module-migrator from there). If those hosts are allowed but still do
-not resolve, the sandbox proxy lists them in `NO_PROXY`: drop them from `NO_PROXY` /
-`no_proxy` so pip goes through the proxy. `bootstrap.sh` also sets the commit identity
+not resolve, the sandbox proxy lists them in `NO_PROXY`: drop them (and `registry.npmjs.org`,
+which pre-commit's prettier hook needs) from `NO_PROXY`, `no_proxy` and
+`npm_config_noproxy` so pip and npm go through the proxy; otherwise pre-commit aborts
+without running any hook. `bootstrap.sh` also sets the commit identity
 (`config.migrate.commit_identity`, a human; never an AI tool). Schedule it after the Actions cron
 (Friday 09:00 UTC), e.g. 11:00 UTC. Step 1 only needs `BADEP/oca-migration-tools` and git
 read access to `OCA/*`.
