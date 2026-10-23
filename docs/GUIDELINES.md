@@ -17,6 +17,9 @@ Implemented in `scripts/migrate_module.sh`:
   lines from `readme/CREDITS.rst`
 * final commit `[MIG] <module>: Migration to 20.0`
 * **not** done: changing copyright years or original authors
+* wiki "tasks to do" not covered by the script, checked by the review and repair subagents
+  (keep this list in sync with the wiki): since 2026-10-19 the widget `selection_badge` is
+  split into `badges_selection` (selection fields) and `badges_many2one` (many2one fields)
 * PR title `[20.0][MIG] <module>: Migration to 20.0`
 * before any OCA PR: announce on the repo's "Migration to version 20.0" issue (manual)
 

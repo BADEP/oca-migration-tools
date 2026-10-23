@@ -1,6 +1,6 @@
 # OCA → 20.0 migration status
 
-Generated 2026-10-23 00:50 UTC · 47 repos · 2245 modules tracked
+Generated 2026-10-23 11:16 UTC · 47 repos · 2245 modules tracked
 
 ## Totals
 
@@ -70,9 +70,8 @@ _none_
 
 ## Notes from this run
 
-- 2026-10-23 (first full run): the Actions workflow had never produced a scan — `report.py` crashed on `diff_report.csv` (KeyError 'status'); fixed in 2da2ca0, workflow re-run manually, 47 repos / 2245 modules scanned (the "changes since last run" above is empty only because the scan commit precedes the verdicts commit; vs. the scan: 32 todo/blocked → skipped-relevancy, 2245 new candidates).
-- Relevancy: 1529 verdicts recorded (1497 relevant, 17 native-in-target, 15 deprecated-upstream). Please eyeball the 32 skips (`relevancy` ≠ relevant in the CSVs; e.g. commission/* renamed to *_oca, edi Factur-X/UBL import now core, partner_title_* and stock_valuation_layer_* models gone in 19.0); `overrides.csv` reinstates any.
-- Migration NOT run: 25 candidates were ready (base_tier_validation, dms, mail_tracking, mail_activity_board, account_chart_update, sale_blanket_order, web_widget_bokeh_chart, jsonifier, …) but this scheduled session cannot reach the BADEP forks (no `add_repo` tool; git push and API return 403 for BADEP/web — only BADEP/addons and BADEP/oca-migration-tools are attached) and cannot install pre-commit / odoo-module-migrator (pypi.org is not an allowed domain, so `bootstrap.sh` fails).
-- Needs a human: (1) give the scheduled task access to all BADEP fork repos (or run it from a session where add_repo works), (2) allow pypi.org and files.pythonhosted.org for the session's network, (3) the task fired Thu 23:30 UTC, i.e. before the Friday 09:00 UTC Actions cron — move it to ~11:00 UTC Friday so the scan is fresh.
-- Repair / merge: nothing to do — no fork PR with failing CI (`ci` column is empty everywhere; the 671 modules already merged-in-fork / ready-for-upstream-pr come from earlier work and have no open PR).
-- OCA pages re-read: migration wiki for 20.0 (last edit 2026-09-08) and the AI policy (merged 2026-07-18, `Assisted-by:` trailer, no `Co-authored-by:` for tools, no unsupervised agents) — nothing new beyond what the scripts already do.
+- 2026-10-23 11:00 UTC (scheduled run): scan used is the manual Actions run of Thu 23:32 UTC (last_scan.json 2026-10-22, < 24 h, so not re-triggered). The Friday 09:00 UTC cron has never fired (zero `schedule` runs in the Actions history, default branch is 20.0) — check the schedule/Actions settings of the repo or dispatch `weekly-sync.yml` by hand each Friday until it does.
+- Relevancy: nothing to do — every module already has a verdict (1529 recorded earlier today).
+- Migration NOT run again, same two blockers as the 00:51 UTC run: this session has no `add_repo` tool and only BADEP/oca-migration-tools + BADEP/addons attached (git push to BADEP/web → 403 "not in this session's authorized repository set"), and pypi.org does not resolve from the session (`bootstrap.sh` cannot install pre-commit / odoo-module-migrator). 25 candidates stay ready (base_tier_validation, dms, …). Fix = attach every BADEP fork to the scheduled task with push access and allow pypi.org + files.pythonhosted.org in its network settings (see PROCESS.md, "Session prerequisites").
+- Review / repair / merge: nothing to do — no open fork PR, no `ci` value anywhere.
+- OCA pages re-read: the 20.0 migration wiki changed on 2026-10-19 — new task: widget `selection_badge` is split into `badges_selection` (selection fields) and `badges_many2one` (many2one fields); noted in GUIDELINES.md for the review/repair subagents (not automatable in `migrate_module.sh` without the field type). AI policy unchanged since 2026-07-18.
