@@ -11,7 +11,7 @@ server-ux,base_revision,19.0,no,,,MiquelRForgeFlow,https://github.com/OCA/server
 server-ux,base_search_custom_field_filter,19.0,no,,,,,,1288,,web,ok,,20.0-mig-base_search_custom_field_filter,,,,,yes,ready-for-upstream-pr,2026-10-23,
 server-ux,base_substate,19.0,no,,,miguel-S73,https://github.com/OCA/server-ux/pull/1357,9,2007,,base mail,ok,,20.0-mig-base_substate,,,,,yes,ready-for-upstream-pr,2026-10-23,
 server-ux,base_technical_features,19.0,no,,,mileo,https://github.com/OCA/server-ux/pull/1342,23,8479,,base,ok,,20.0-mig-base_technical_features,,,,,yes,ready-for-upstream-pr,2026-10-23,
-server-ux,base_tier_validation,18.0,no,relevant,Generic tier approval framework absent from Community core,,,,131895,,mail,ok,,,,,,,yes,todo,2026-10-23,
+server-ux,base_tier_validation,18.0,no,relevant,Generic tier approval framework absent from Community core,,,,131895,,mail,ok,,,,,py:-82 xml:-7 i18n:0 tests:0 docs:0 other:0,,yes,todo,2026-10-23,
 server-ux,base_tier_validation_confirm_auth,18.0,no,relevant,Extends tier validation with authentication confirmation,,,,783,,base_tier_validation,blocked,base_tier_validation:missing,,,,,,yes,blocked-by-deps,2026-10-23,
 server-ux,base_tier_validation_correction,18.0,no,relevant,Extends tier validation with reviewer reassignment,,,,1371,,base_tier_validation,blocked,base_tier_validation:missing,,,,,,yes,blocked-by-deps,2026-10-23,
 server-ux,base_tier_validation_formula,18.0,no,relevant,Extends tier validation with python formulas,,,,6760,,base_tier_validation,blocked,base_tier_validation:missing,,,,,,yes,blocked-by-deps,2026-10-23,
