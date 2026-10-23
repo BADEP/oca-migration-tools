@@ -13,7 +13,7 @@ project,project_kanban_form_direct_access,19.0,no,,,kalpeshgajera-uncannycs,http
 project,project_key,19.0,no,,,BhaveshHeliconia,https://github.com/OCA/project/pull/1824,18,2126,migrate; 1 PR(s) to port,portal project,ok,,20.0-mig-project_key,,,,,yes,ready-for-upstream-pr,2026-10-23,
 project,project_merge,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/project/pull/1827,18,1306,migrate; 1 PR(s) to port,project,ok,,20.0-mig-project_merge,,,,,yes,ready-for-upstream-pr,2026-10-23,
 project,project_milestone_status,19.0,no,,,BhaveshHeliconia,https://github.com/OCA/project/pull/1825,18,1535,migrate; 1 PR(s) to port,project hr_timesheet,ok,,,,,,,yes,claimed-by-others,2026-10-23,
-project,project_multi_department,18.0,no,,,,,,,migrate,project hr,ok,,,,,,,yes,todo,2026-10-23,
+project,project_multi_department,18.0,no,relevant,Core cannot link several HR departments to a project or scope access by department,,,,,migrate,project hr,ok,,,,,,,yes,todo,2026-10-23,
 project,project_no_portal,18.0,no,relevant,Per-company blocking of project portal access is not in core,,,,249,migrate,project,ok,,,,,,,yes,todo,2026-10-23,
 project,project_parent,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/project/pull/1829,18,2355,migrate; 1 PR(s) to port,project,ok,,20.0-mig-project_parent,,,,,yes,ready-for-upstream-pr,2026-10-23,
 project,project_parent_task_filter,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/project/pull/1830,18,1869,migrate; 1 PR(s) to port,project,ok,,20.0-mig-project_parent_task_filter,,,,,yes,ready-for-upstream-pr,2026-10-23,

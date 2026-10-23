@@ -32,7 +32,7 @@ account-analytic,purchase_analytic_required,19.0,no,,,kh-badep,https://github.co
 account-analytic,purchase_analytic_tag,18.0,no,relevant,Glue restoring analytic tags on purchase order lines,,,,659,,purchase account_analytic_tag,needs-pr-merge,account_analytic_tag:pr=OCA/account-analytic#980,,,,,,yes,todo,2026-10-23,
 account-analytic,purchase_request_analytic,17.0,no,relevant,Glue adding analytic distribution to OCA purchase requests,,,,356,,purchase_request,needs-pr-merge,purchase_request:pr=OCA/purchase-workflow#3212,,,,,,yes,todo,2026-10-23,
 account-analytic,purchase_stock_analytic,18.0,no,relevant,Glue copying purchase line distribution to stock moves,,,,9257,,purchase_stock stock_analytic,needs-pr-merge,stock_analytic:pr=OCA/account-analytic#988,,,,,,yes,todo,2026-10-23,
-account-analytic,sale_analytic,19.0,no,,,,,,,,sale base_view_inheritance_extension,ok,,,,,,,yes,todo,2026-10-23,
+account-analytic,sale_analytic,19.0,no,relevant,No header-level analytic distribution on sale orders in core,,,,,,sale base_view_inheritance_extension,ok,,,,,,,yes,todo,2026-10-23,
 account-analytic,sale_analytic_distribution_model_warehouse,18.0,no,relevant,Warehouse criterion for sale distribution models is not in core,,,,1194,,sale_stock,ok,,,,,,,yes,todo,2026-10-23,
 account-analytic,sale_analytic_tag,19.0,no,,,kh-badep,https://github.com/OCA/account-analytic/pull/987,7,845,,sale account_analytic_tag,needs-pr-merge,account_analytic_tag:pr=OCA/account-analytic#980,20.0-mig-sale_analytic_tag,,,,,yes,merged-in-fork,2026-10-23,
 account-analytic,stock_analytic,19.0,no,,,kh-badep,https://github.com/OCA/account-analytic/pull/988,6,15125,,stock_account analytic,ok,,20.0-mig-stock_analytic,,,,,yes,ready-for-upstream-pr,2026-10-23,
