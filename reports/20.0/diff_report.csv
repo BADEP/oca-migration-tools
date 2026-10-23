@@ -382,7 +382,7 @@ purchase-workflow,purchase_order_type,-1,-10,0,0,0,0,review,True
 purchase-workflow,purchase_order_weight_volume,22,0,0,-12,-16,-3,review,True
 purchase-workflow,purchase_partner_incoterm,0,-1,0,3,-20,-3,review,True
 purchase-workflow,purchase_reception_status,-4,0,-125,0,-11,-3,review,True
-purchase-workflow,purchase_request,2,-83,0,4,-18,11,review,True
+purchase-workflow,purchase_request,6,-83,0,4,-18,11,review,True
 purchase-workflow,purchase_request_type,-1,-11,0,5,0,-2,review,True
 purchase-workflow,purchase_rfq_number,0,0,0,0,-26,-3,review,True
 purchase-workflow,purchase_security,-23,-52,0,2,0,-1,review,True
@@ -529,7 +529,6 @@ server-tools,base_partition,1,0,0,0,-3,-3,review,True
 server-tools,base_search_fuzzy,2,0,0,2,-13,-4,review,True
 server-tools,base_technical_user,-1,0,0,0,-19,0,review,True
 server-tools,base_time_window,1,-16,0,0,-24,-1,review,True
-server-tools,base_view_inheritance_extension,4,0,0,0,3,-3,review,True
 server-tools,base_write_diff,0,0,0,0,-10,0,formatting,False
 server-tools,bus_alt_connection,25,0,0,0,-5,-3,review,True
 server-tools,database_cleanup,5,0,0,25,0,0,review,True
@@ -563,7 +562,6 @@ server-ux,mail_message_destiny_link_template,0,-1,0,0,5,-3,review,True
 server-ux,sequence_reset_period,-2,0,0,3,-2,-3,review,True
 server-ux,server_action_mass_edit,4,2,0,-1,-1,0,review,True
 social,mute_notification_user_autosubscribe,0,0,0,0,2,0,formatting,True
-stock-logistics-warehouse,stock_demand_estimate,-4,-11,0,0,-3,-2,review,True
 stock-logistics-warehouse,stock_inventory,-10,-13,-74,-67,-12,-2,review,True
 stock-logistics-warehouse,stock_inventory_discrepancy,2,0,0,2,0,0,review,True
 stock-logistics-warehouse,stock_inventory_justification,-1,-28,0,2,-5,0,review,True
@@ -616,7 +614,7 @@ stock-logistics-workflow,stock_picking_send_by_mail,0,0,0,0,12,-3,review,True
 stock-logistics-workflow,stock_production_lot_active,0,2,0,2,0,-3,review,True
 stock-logistics-workflow,stock_restrict_lot,-13,4,0,-5,1,-3,review,True
 stock-logistics-workflow,stock_split_picking,-13,0,0,2,0,0,review,True
-timesheet,hr_timesheet_autofill_project_off,0,0,0,-2,-1,0,tests-missing,False
+timesheet,hr_timesheet_autofill_project_off,-1,0,0,-2,-11,0,review,True
 timesheet,hr_timesheet_begin_end,0,0,0,0,2,-3,review,True
 timesheet,hr_timesheet_day_week,1,0,0,2,-1,0,review,True
 timesheet,hr_timesheet_employee_analytic_tag,0,0,0,2,-16,-3,review,True
