@@ -1,0 +1,10 @@
+repo,module,source_branch,in_upstream_target,relevancy,relevancy_rationale,claimed_by,upstream_open_pr,claim_age_days,downloads,oca_port,deps,deps_status,deps_blocking,our_mig_branch,our_fork_pr,ci,diff_lines,diff_review,self_maintained,status,last_run,notes
+queue,base_import_async,18.0,no,,,,,,3251,analysed,base_import queue_job,needs-pr-merge,queue_job:pr=OCA/queue#999,,,,,,yes,todo,2026-10-22,
+queue,queue_job,19.0,no,,,dhongu,https://github.com/OCA/queue/pull/999,25,111041,port_commits; 3 PR(s) to port,mail base_sparse_field web,ok,,20.0-mig-queue_job,,,,,yes,ready-for-upstream-pr,2026-10-22,
+queue,queue_job_batch,18.0,no,,,,,,1483,port_commits; 2 PR(s) to port,queue_job,needs-pr-merge,queue_job:pr=OCA/queue#999,,,,,,yes,todo,2026-10-22,
+queue,queue_job_cron,18.0,no,,,thomas-tankengine,https://github.com/OCA/queue/pull/1012,7,6412,analysed,queue_job,needs-pr-merge,queue_job:pr=OCA/queue#999,,,,,,yes,claimed-by-others,2026-10-22,
+queue,queue_job_cron_jobrunner,18.0,no,,,alan196,https://github.com/OCA/queue/pull/1008,11,3224,analysed,queue_job,needs-pr-merge,queue_job:pr=OCA/queue#999,,,,,,yes,claimed-by-others,2026-10-22,
+queue,queue_job_profiler,18.0,no,,,,,,487,,queue_job,needs-pr-merge,queue_job:pr=OCA/queue#999,,,,,,yes,todo,2026-10-22,
+queue,queue_job_subscribe,18.0,no,,,,,,1862,analysed,queue_job,needs-pr-merge,queue_job:pr=OCA/queue#999,,,,,,yes,todo,2026-10-22,
+queue,test_queue_job,19.0,no,,,,,,1918,analysed,queue_job,needs-pr-merge,queue_job:pr=OCA/queue#999,20.0-mig-test_queue_job,,,,,yes,merged-in-fork,2026-10-22,
+queue,test_queue_job_batch,18.0,no,,,,,,151,analysed,queue_job_batch test_queue_job,blocked,queue_job_batch:missing queue_job:pr=OCA/queue#999 test_queue_job:missing,,,,,,yes,blocked-by-deps,2026-10-22,

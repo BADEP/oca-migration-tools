@@ -1,0 +1,9 @@
+repo,module,source_branch,in_upstream_target,relevancy,relevancy_rationale,claimed_by,upstream_open_pr,claim_age_days,downloads,oca_port,deps,deps_status,deps_blocking,our_mig_branch,our_fork_pr,ci,diff_lines,diff_review,self_maintained,status,last_run,notes
+stock-logistics-barcode,barcodes_generator_abstract,19.0,no,,,,,,2290,migrate,barcodes,ok,,,,,,,yes,todo,2026-10-22,
+stock-logistics-barcode,barcodes_generator_location,17.0,no,,,,,,352,,barcodes_generator_abstract stock,blocked,barcodes_generator_abstract:missing,,,,,,yes,blocked-by-deps,2026-10-22,
+stock-logistics-barcode,barcodes_generator_product,19.0,no,,,,,,853,,barcodes_generator_abstract product,blocked,barcodes_generator_abstract:missing,,,,,,yes,blocked-by-deps,2026-10-22,
+stock-logistics-barcode,product_multi_barcode,19.0,no,,,,,,811,,product,ok,,,,,,,yes,todo,2026-10-22,
+stock-logistics-barcode,stock_barcodes,18.0,no,,,,,,3517,,barcodes stock stock_move_line_qty_picked web_widget_numeric_step web mail,blocked,stock_move_line_qty_picked:missing web_widget_numeric_step:missing,,,,,,yes,blocked-by-deps,2026-10-22,
+stock-logistics-barcode,stock_picking_product_barcode_report,18.0,no,,,,,,958,,stock,ok,,,,,,,yes,todo,2026-10-22,
+stock-logistics-barcode,stock_picking_product_barcode_report_secondary_unit,18.0,no,,,,,,635,,stock_picking_product_barcode_report stock_secondary_unit,blocked,stock_picking_product_barcode_report:missing stock_secondary_unit:missing product_secondary_unit:missing,,,,,,yes,blocked-by-deps,2026-10-22,
+stock-logistics-barcode,web_ir_actions_client_scan,18.0,no,,,,,,457,,barcodes,ok,,,,,,,yes,todo,2026-10-22,

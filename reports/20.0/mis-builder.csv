@@ -1,0 +1,4 @@
+repo,module,source_branch,in_upstream_target,relevancy,relevancy_rationale,claimed_by,upstream_open_pr,claim_age_days,downloads,oca_port,deps,deps_status,deps_blocking,our_mig_branch,our_fork_pr,ci,diff_lines,diff_review,self_maintained,status,last_run,notes
+mis-builder,mis_builder,19.0,no,,,mileo,https://github.com/OCA/mis-builder/pull/842,23,35388,analysed,account board report_xlsx date_range,needs-pr-merge,report_xlsx:pr=OCA/reporting-engine#1203,20.0-mig-mis_builder,,,,,yes,merged-in-fork,2026-10-22,
+mis-builder,mis_builder_budget,19.0,no,,,,,,11821,analysed,mis_builder account,needs-pr-merge,mis_builder:pr=OCA/mis-builder#842,20.0-mig-mis_builder_budget,,,,,yes,merged-in-fork,2026-10-22,
+mis-builder,mis_builder_demo,19.0,no,,,,,,1617,analysed,mis_builder_budget purchase,blocked,mis_builder_budget:missing mis_builder:pr=OCA/mis-builder#842,20.0-mig-mis_builder_demo,,,,,yes,merged-in-fork,2026-10-22,
