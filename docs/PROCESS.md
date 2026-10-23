@@ -54,6 +54,14 @@ Needs the `BADEP_GH_TOKEN` secret. Runs `scripts/sync_forks.py` → `scripts/sca
 
 Prompt in [`docs/CLAUDE-TASK.md`](CLAUDE-TASK.md). Reads the fresh CSVs and:
 
+Session prerequisites (learned 2026-10-23): the scheduled session must have **every BADEP
+fork attached with push access** (`add_repo`; without it git push and the GitHub API answer
+403 for `BADEP/<repo>` and steps 2–4 below are impossible) and **pypi.org /
+files.pythonhosted.org allowed** in its network settings (`bootstrap.sh` installs
+pre-commit and odoo-module-migrator from there). Schedule it after the Actions cron
+(Friday 09:00 UTC), e.g. 11:00 UTC. Step 1 only needs `BADEP/oca-migration-tools` and git
+read access to `OCA/*`.
+
 1. **Relevancy** (`select_candidates.py relevancy`) — for each module without a verdict,
    an Opus subagent answers `relevant | native-in-target | deprecated-upstream` with a
    one-line rationale. Permissive: only clear cases skip. Written back with
