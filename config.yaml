@@ -36,6 +36,12 @@ migrate:
   # relevancy is permissive: only these verdicts skip a module
   skip_verdicts: [native-in-target, deprecated-upstream]
   ai_trailer: "Assisted-by: Claude (Anthropic)"
+  # Author AND committer of every commit the Claude task makes (forks and this repo).
+  # Must be a human: an AI tool is never the author or committer (OCA AI policy);
+  # its help is disclosed only through ai_trailer. bootstrap.sh applies this identity.
+  commit_identity:
+    name: "Khalid Hazam"
+    email: "k.hazam@badep.ca"
   # subagent models used by the Claude task
   models:
     plumbing: haiku

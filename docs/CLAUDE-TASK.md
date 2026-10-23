@@ -38,6 +38,8 @@ Migrate
    `bash scripts/migrate_module.sh <repo> <module> <source_branch> [dep PR refs from
    deps_blocking, "pr=" entries]`. Exit codes 10–12 mean a port or dependency conflict:
    do not fix by hand at this stage; note it in the CSV `notes` column and move on.
+   Exit code 13 means git would commit as an AI tool: stop the run, re-run
+   `bootstrap.sh`, and check `git log --format='%an %cn'` on anything already pushed.
 7. Open a PR on `BADEP/<repo>` from `20.0-mig-<module>` to `20.0`, title
    `[20.0][MIG] <module>: Migration to 20.0`, body: source branch, dependency PRs merged
    (if any), a one-line statement that the port was produced by BADEP's migration scripts
@@ -90,6 +92,11 @@ Report
     and one line on anything blocking. That message is what the email carries.
 
 Rules
+- Claude is never the author or committer of a commit. `bootstrap.sh` sets the identity
+  from `config.migrate.commit_identity`; subagents commit with that same identity and add
+  the `Assisted-by:` trailer, never `Co-authored-by:`.
+- Open PRs with the REST API (`gh api -X POST repos/BADEP/<repo>/pulls …`); `gh pr create`
+  needs GraphQL, which Claude sessions cannot reach.
 - Deterministic scripts first; AI only in steps 4 and 9. Do not hand-edit module code
   outside step 9.
 - Use the cheapest model for plumbing (`config.migrate.models.plumbing`) and the

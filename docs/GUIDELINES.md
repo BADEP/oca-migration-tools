@@ -13,7 +13,7 @@ Implemented in `scripts/migrate_module.sh`:
   `git format-patch --keep-subject --stdout origin/20.0..origin/<source> -- <module> | git am -3 --keep`
   (with `--ignore-whitespace` fallback as the wiki's troubleshooting section suggests)
 * `pre-commit run -a` committed once as `[IMP] <module>: pre-commit auto fixes`
-* bump version to `20.0.1.0.0`; remove `migrations/`; remove past financed-migration
+* bump version to `20.0.1.0.0` (a reset, not a series swap: `18.0.3.5.2` becomes `20.0.1.0.0`); remove `migrations/`; remove past financed-migration
   lines from `readme/CREDITS.rst`
 * final commit `[MIG] <module>: Migration to 20.0`
 * **not** done: changing copyright years or original authors
@@ -67,6 +67,11 @@ What we apply:
   and signs every OCA PR.
 * **Disclose assistance with the `Assisted-by:` trailer** (never `Co-authored-by:` for a
   tool). The `[MIG]` commit carries `config.migrate.ai_trailer`.
+* **An AI tool is never the author or committer of a commit**, in the forks or in this
+  repo. Every commit the Claude task makes is authored and committed by the human in
+  `config.migrate.commit_identity`; `bootstrap.sh` applies it (overriding any identity the
+  sandbox came with) and `migrate_module.sh` refuses to run under an AI identity (exit 13).
+  Ported OCA commits keep their original authors.
 * **Review is a human activity.** The automation never reviews or comments on OCA PRs.
 * **Quantity × quality × rate.** The policy's reference point is ~30 lines; PSCs may set
   their own thresholds. We cap our own throughput (`max_modules_per_run`) and open OCA

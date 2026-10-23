@@ -33,6 +33,10 @@ if [ ! -d "$PATH_REPO/.git" ]; then
   git -C "$PATH_REPO" remote add upstream "https://github.com/$UP/$REPO.git"
 fi
 cd "$PATH_REPO"
+# An AI tool is never author or committer (OCA AI policy): refuse before any commit.
+if { git var GIT_AUTHOR_IDENT; git var GIT_COMMITTER_IDENT; } | grep -qiE 'claude|anthropic'; then
+  echo "AI_IDENTITY: git identity is an AI tool; run bootstrap.sh"; exit 13
+fi
 git fetch -q upstream "$TARGET" "$SRC"
 git fetch -q origin "$TARGET" || true
 git fetch -q origin "$BRANCH" 2>/dev/null && EXISTS=1 || EXISTS=0
@@ -77,9 +81,8 @@ import re, sys, pathlib, shutil
 mod, target = sys.argv[1], sys.argv[2]
 p = pathlib.Path(mod) / "__manifest__.py"
 s = p.read_text()
-s2 = re.sub(r'(["\']version["\']\s*:\s*["\'])\d+\.\d+(\.\d+\.\d+\.\d+["\'])', rf'\g<1>{target}\g<2>', s)
-if s2 == s:
-    s2 = re.sub(r'(["\']version["\']\s*:\s*["\'])[^"\']+(["\'])', rf'\g<1>{target}.1.0.0\g<2>', s)
+# wiki: "Bump the module version to <target>.1.0.0" (reset, not a series swap)
+s2 = re.sub(r'(["\']version["\']\s*:\s*["\'])[^"\']+(["\'])', rf'\g<1>{target}.1.0.0\g<2>', s)
 p.write_text(s2)
 mig = pathlib.Path(mod) / "migrations"
 if mig.exists():
