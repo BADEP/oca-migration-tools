@@ -1,5 +1,5 @@
 repo,module,source_branch,in_upstream_target,relevancy,relevancy_rationale,claimed_by,upstream_open_pr,claim_age_days,downloads,oca_port,deps,deps_status,deps_blocking,our_mig_branch,our_fork_pr,ci,diff_lines,diff_review,self_maintained,status,last_run,notes
-connector-telephony,asterisk_click2dial,17.0,no,,,,,,249,,base_phone,blocked,base_phone:missing,,,,,,yes,blocked-by-deps,2026-10-22,
-connector-telephony,base_phone,18.0,no,,,,,,1518,,phone_validation base_setup,ok,,,,,,,yes,todo,2026-10-22,
-connector-telephony,sms_no_automatic_delete,18.0,no,,,,,,186,,sms,ok,,,,,,,yes,todo,2026-10-22,
-connector-telephony,voip_oca,19.0,no,,,,,,1095,,mail,ok,,,,,,,yes,todo,2026-10-22,
+connector-telephony,asterisk_click2dial,17.0,no,relevant,"Asterisk click2dial and caller ID connector, not ported beyond 17.0 yet",,,,249,,base_phone,blocked,base_phone:missing,,,,,,yes,blocked-by-deps,2026-10-22,
+connector-telephony,base_phone,18.0,no,relevant,Extends core phone formatting to create and write plus telephony helpers,,,,1518,,phone_validation base_setup,ok,,,,,,,yes,todo,2026-10-22,
+connector-telephony,sms_no_automatic_delete,18.0,no,relevant,"Core still purges sent SMS, module keeps them for a configurable delay",,,,186,,sms,ok,,,,,,,yes,todo,2026-10-22,
+connector-telephony,voip_oca,19.0,no,relevant,"Browser SIP softphone not in Community core, Odoo VoIP is Enterprise only",,,,1095,,mail,ok,,,,,,,yes,todo,2026-10-22,
