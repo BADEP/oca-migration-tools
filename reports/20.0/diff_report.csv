@@ -20,6 +20,7 @@ account-financial-reporting,partner_statement,-3,-10,-792,2,-50,-3,review,True
 account-financial-tools,account_account_tag_code,0,0,0,0,0,-3,review,True
 account-financial-tools,account_asset_force_account,-3,0,0,0,0,0,review,True
 account-financial-tools,account_asset_management,-6,-21,0,-1,-4,-6,review,True
+account-financial-tools,account_chart_update,4,0,0,2,0,-3,review,True
 account-financial-tools,account_check_deposit,2,-16,0,-6,0,3,review,True
 account-financial-tools,account_fiscal_position_allowed_journal,0,0,0,0,0,0,formatting,False
 account-financial-tools,account_fiscal_position_vat_check,0,4,0,0,-2,-3,review,True
@@ -30,7 +31,7 @@ account-financial-tools,account_journal_lock_date,2,1,0,1,-1,-3,review,True
 account-financial-tools,account_journal_restrict_mode,0,0,0,0,-2,-3,review,True
 account-financial-tools,account_lock_date_update,1,0,0,0,-5,-3,review,True
 account-financial-tools,account_move_line_tax_editable,0,0,0,-2,2,-3,review,True
-account-financial-tools,account_move_name_sequence,5,7,0,-1,0,-2,review,True
+account-financial-tools,account_move_name_sequence,-29,7,-52,-24,0,-2,review,True
 account-financial-tools,account_move_post_date_user,0,0,0,0,2,-3,review,True
 account-financial-tools,account_move_print,0,-1,0,0,-4,0,review,True
 account-financial-tools,account_move_template,-16,-20,0,0,0,1,review,True
@@ -119,6 +120,7 @@ delivery-carrier,delivery_free_fee_removal,0,0,0,2,0,0,formatting,False
 delivery-carrier,partner_delivery_info,0,1,0,0,0,0,review,True
 delivery-carrier,partner_delivery_zone,-3,0,0,2,0,-3,review,True
 delivery-carrier,partner_delivery_zone_calendar,0,2,0,2,-20,-3,review,True
+dms,dms,-25,-2,0,5,-9,0,review,True
 e-commerce,product_template_multi_link,7,-23,0,6,4,-1,review,True
 e-commerce,product_template_multi_link_date_span,2,0,0,0,-10,-3,review,True
 e-commerce,product_variant_multi_link,4,0,0,2,-9,-3,review,True
@@ -307,7 +309,6 @@ product-attribute,purchase_product_template_tags,0,2,0,0,-11,-3,review,True
 product-attribute,sale_product_matrix_secondary_unit,-1,0,0,0,0,9,review,True
 product-attribute,uom_alias,0,0,0,0,0,0,formatting,False
 project,project_administrator_restricted_visibility,-8,-14,0,-12,-6,0,review,True
-project,project_department,0,1,0,0,-8,-3,review,True
 project,project_forecast_line,-1,-5,0,10,0,1,review,True
 project,project_group,-1,-21,0,2,0,0,review,True
 project,project_hr,1,0,0,2,-7,-3,review,True
@@ -378,10 +379,10 @@ purchase-workflow,purchase_order_line_stock_available,0,0,0,-2,-3,-3,review,True
 purchase-workflow,purchase_order_owner,11,0,0,-1,-7,-3,review,True
 purchase-workflow,purchase_order_secondary_unit,-4,0,0,7,-12,-3,review,True
 purchase-workflow,purchase_order_supplierinfo_update,1,0,0,6,0,0,review,True
-purchase-workflow,purchase_order_type,-1,-10,0,0,0,0,review,True
+purchase-workflow,purchase_order_type,-171,-39,-3789,-355,-43,0,review,True
 purchase-workflow,purchase_order_weight_volume,22,0,0,-12,-16,-3,review,True
 purchase-workflow,purchase_partner_incoterm,0,-1,0,3,-20,-3,review,True
-purchase-workflow,purchase_reception_status,-4,0,-125,0,-11,-3,review,True
+purchase-workflow,purchase_reception_status,-4,0,-131,0,-11,-3,review,True
 purchase-workflow,purchase_request,6,-83,0,4,-18,11,review,True
 purchase-workflow,purchase_request_type,-1,-11,0,5,0,-2,review,True
 purchase-workflow,purchase_rfq_number,0,0,0,0,-26,-3,review,True
@@ -395,8 +396,8 @@ purchase-workflow,purchase_uom_discrete,0,0,0,0,0,0,formatting,False
 purchase-workflow,purchase_v12_control_menu,0,0,0,0,-1,-3,review,True
 purchase-workflow,sale_purchase_force_vendor,4,0,0,6,-2,0,review,True
 purchase-workflow,supplier_calendar,-1,0,0,4,0,-3,review,True
-queue,queue_job,-48,-14,0,-1,-5,0,review,True
-queue,test_queue_job,0,2,0,21,0,0,review,True
+queue,queue_job,-179,-4,-228,-75,-5,0,review,True
+queue,test_queue_job,0,2,0,-181,0,0,review,True
 reporting-engine,base_comment_template,-1,-8,0,2,-41,-1,review,True
 reporting-engine,bi_sql_editor,5,0,0,0,-25,-6,review,True
 reporting-engine,kpi,-56,-38,0,-1,2,0,review,True
@@ -428,6 +429,7 @@ sale-workflow,product_form_sale_link,-1,0,0,0,-1,0,review,True
 sale-workflow,sale_advance_payment,-2,1,0,6,-9,-3,review,True
 sale-workflow,sale_automatic_workflow,-41,0,0,0,-3,-3,review,True
 sale-workflow,sale_automatic_workflow_job,0,0,0,0,-15,-3,review,True
+sale-workflow,sale_blanket_order,1,0,0,0,-28,-3,review,True
 sale-workflow,sale_cancel_reason,-4,0,0,0,-12,-3,review,True
 sale-workflow,sale_cancel_restrict,0,0,0,0,-108,-3,review,True
 sale-workflow,sale_commercial_partner,0,0,0,0,-11,-3,review,True
@@ -524,7 +526,7 @@ server-tools,auditlog,19,0,0,-6,-1,-1,review,True
 server-tools,base_cron_exclusion,1,0,0,0,-6,-3,review,True
 server-tools,base_exception,3,0,0,0,-9,-3,review,True
 server-tools,base_fontawesome,0,0,0,0,-2,-4,review,True
-server-tools,base_kanban_stage,1,0,0,0,0,-3,review,True
+server-tools,base_kanban_stage,1,0,-1,0,0,-3,review,True
 server-tools,base_partition,1,0,0,0,-3,-3,review,True
 server-tools,base_search_fuzzy,2,0,0,2,-13,-4,review,True
 server-tools,base_technical_user,-1,0,0,0,-19,0,review,True
@@ -534,6 +536,7 @@ server-tools,bus_alt_connection,25,0,0,0,-5,-3,review,True
 server-tools,database_cleanup,5,0,0,25,0,0,review,True
 server-tools,dbfilter_from_header,0,0,0,0,-3,-3,review,True
 server-tools,iap_alternative_provider,0,0,0,0,-15,-3,review,True
+server-tools,jsonifier,1,0,0,0,-26,-3,review,True
 server-tools,module_auto_update,0,0,0,4,2,-3,review,True
 server-tools,module_change_auto_install,-2,0,0,0,0,0,review,True
 server-tools,onchange_helper,0,0,0,1,-48,-3,review,True
@@ -555,12 +558,15 @@ server-ux,base_revision,-1,0,0,0,0,0,review,True
 server-ux,base_search_custom_field_filter,-30,0,0,-75,-16,-3,review,True
 server-ux,base_substate,-5,0,0,2,0,0,review,True
 server-ux,base_technical_features,1,0,0,0,-22,0,review,True
+server-ux,base_tier_validation,-82,-7,0,0,-1,0,review,True
 server-ux,date_range_account,0,3,0,0,-8,-3,review,True
 server-ux,developer_menu,0,0,0,0,-5,-3,review,True
 server-ux,filter_multi_user,0,0,0,0,-3,-3,review,True
 server-ux,mail_message_destiny_link_template,0,-1,0,0,5,-3,review,True
 server-ux,sequence_reset_period,-2,0,0,3,-2,-3,review,True
 server-ux,server_action_mass_edit,4,2,0,-1,-1,0,review,True
+social,mail_activity_board,0,0,0,0,1,-3,review,True
+social,mail_tracking,2,0,0,0,21,-3,review,True
 social,mute_notification_user_autosubscribe,0,0,0,0,2,0,formatting,True
 stock-logistics-warehouse,stock_inventory,-10,-13,-74,-67,-12,-2,review,True
 stock-logistics-warehouse,stock_inventory_discrepancy,2,0,0,2,0,0,review,True
@@ -624,7 +630,7 @@ timesheet,hr_timesheet_task_required,-1,-16,0,2,0,0,review,True
 timesheet,hr_timesheet_task_stage,0,0,0,6,-2,-3,review,True
 timesheet,hr_timesheet_time_control,13,-4,0,22,-18,-3,review,True
 timesheet,project_task_analytic_propagation,7,0,0,4,0,0,review,True
-timesheet,project_timesheet_holidays_dynamic_description,-2,0,0,9,0,0,review,True
+timesheet,project_timesheet_holidays_dynamic_description,-2,0,0,6,0,0,review,True
 timesheet,sale_order_update_timesheet_price,1,3,0,0,0,0,review,True
 timesheet,sale_timesheet_invoice_link,-2,0,0,0,0,-3,review,True
 timesheet,sale_timesheet_line_exclude,0,1,0,0,0,0,review,True
@@ -654,6 +660,7 @@ web,web_search_deactivate_autosearch,0,0,0,0,0,0,formatting,False
 web,web_search_with_and,0,0,0,0,0,0,formatting,False
 web,web_timeline,-2,0,0,-64,-73,-5,review,True
 web,web_tree_many2one_clickable,6,1,0,0,-1,1,review,True
+web,web_widget_bokeh_chart,0,0,0,0,0,0,formatting,False
 web,web_widget_domain_editor_dialog,0,0,0,0,2,-3,review,True
 web,web_widget_dropdown_dynamic,0,0,0,0,-10,-3,review,True
 web,web_widget_numeric_step,0,0,0,0,-16,-3,review,True
