@@ -22,7 +22,7 @@ website,website_menu_by_user_status,18.0,no,relevant,Menu display by logged-in s
 website,website_odoo_debranding,18.0,no,relevant,Enforces removal of Odoo branding from website footer,,,,5163,,website,ok,,,,,,,yes,todo,2026-10-26,
 website,website_partner_form,18.0,no,relevant,Backend editing of partner website descriptions not native,,,,585,,website_partner,ok,,,,,,,yes,todo,2026-10-26,
 website,website_product_document_download_counter,18.0,no,relevant,Download statistics for product documents not tracked by core,,,,470,,website_sale,ok,,,,,,,yes,todo,2026-10-26,
-website,website_recaptcha_v2,17.0,no,,,,,,691,,website,ok,,,,,,,yes,todo,2026-10-26,
+website,website_recaptcha_v2,17.0,no,relevant,"Adds the reCAPTCHA v2 checkbox widget and validation helper; Odoo 20.0 only ships invisible score-based captchas (v3, Turnstile), not deprecated upstream.",,,,691,,website,ok,,,,,,,yes,todo,2026-10-26,
 website,website_require_login,19.0,no,,,weinni2000,https://github.com/OCA/website/pull/1235,5,1311,,website,ok,,,,,,,yes,claimed-by-others,2026-10-26,
 website,website_search_header,18.0,no,native-in-target,Core header options already include a search bar,,,,526,,website,ok,,,,,,,yes,skipped-relevancy,2026-10-26,
 website,website_select2,18.0,no,relevant,Searchable select widgets on website forms not native,,,,423,,web,ok,,,,,,,yes,todo,2026-10-26,

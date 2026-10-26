@@ -11,7 +11,7 @@ e-commerce,website_sale_barcode_search,19.0,no,,,sudhir-erpharbor,https://github
 e-commerce,website_sale_cart_add_product_xlsx_csv,17.0,no,relevant,importing cart lines from a spreadsheet is not in core,,,,399,,website_sale_stock,ok,,,,,,,yes,todo,2026-10-26,
 e-commerce,website_sale_cart_expire,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/e-commerce/pull/1359,11,1262,,website_sale,ok,,20.0-mig-website_sale_cart_expire,,,,,yes,ready-for-upstream-pr,2026-10-26,
 e-commerce,website_sale_category_breadcrumb,18.0,no,relevant,full recursive and multi-category breadcrumbs go beyond core,,,,457,,website_sale,ok,,,,,,,yes,todo,2026-10-26,
-e-commerce,website_sale_category_smart_button,19.0,no,,,,,,,,website_sale,ok,,,,,,,yes,todo,2026-10-26,
+e-commerce,website_sale_category_smart_button,19.0,no,native-in-target,Odoo 20.0 category form already has the is_published website_redirect_button smart button (product.public.category inherits website.published.multi.mixin); module only adds that button.,,,,,,website_sale,ok,,,,,,,yes,skipped-relevancy,2026-10-26,
 e-commerce,website_sale_charge_payment_fee,19.0,no,,,,,,981,,payment website_sale,ok,,20.0-mig-website_sale_charge_payment_fee,,,,,yes,ready-for-upstream-pr,2026-10-26,
 e-commerce,website_sale_checkout_country_vat,18.0,no,relevant,VAT country prefix autocomplete at checkout is not in core,,,,265,,base_vat website_sale website_snippet_country_dropdown,blocked,base_vat:unknown website_snippet_country_dropdown:missing,,,,,,yes,blocked-by-deps,2026-10-26,
 e-commerce,website_sale_checkout_skip_payment,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/e-commerce/pull/1371,4,3032,,website_sale,ok,,20.0-mig-website_sale_checkout_skip_payment,,,,,yes,ready-for-upstream-pr,2026-10-26,
