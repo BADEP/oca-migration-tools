@@ -46,7 +46,7 @@ Needs the `BADEP_GH_TOKEN` secret. Runs `scripts/sync_forks.py` → `scripts/sca
 
 | script | does |
 |---|---|
-| `sync_forks.py` | create missing forks; ff source branches; merge OCA/target into ours (OCA wins); rebase our mig branches; delete mig branches merged upstream |
+| `sync_forks.py` | create missing forks; ff source branches; merge OCA/target into ours (OCA wins); rebase our mig branches; delete mig branches merged upstream; register the fork's workflows so CI runs on our PRs (a fork runs none until a git push editing a workflow file lands on a branch its push trigger matches: one-line edit on a throwaway `<target>-ocabot-*` branch, deleted right after) |
 | `scan.py` | per repo: modules missing on OCA/target, newest source branch, migration-issue claims, open `[MIG]` PRs, recursive dependency status (core / OCA target / open PR / missing), our branch & PR & CI state, PyPI downloads (`scan.downloads_window`), oca-port dry-run analysis (`scan.run_oca_port_dry_run`) |
 | `report.py` | totals, per-repo table, delta vs. previous run |
 

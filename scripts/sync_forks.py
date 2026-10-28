@@ -18,7 +18,10 @@ Writes sync notes into `<OCA_SCRATCH_DIR>/sync-<repo>.json` which scan.py merges
 from __future__ import annotations
 
 import json
+import os
+import subprocess
 import sys
+import time
 
 from common import (CONFIG, ORG, SCRATCH, SOURCES, TARGET, UP, branch_exists, clone_path,
                     ensure_clone, gh_json, list_modules, load_repos, log, mig_branches, run)
@@ -48,6 +51,57 @@ def ensure_actions_enabled(repo: str, notes: dict):
     r = run(["gh", "api", "-X", "PUT", f"repos/{ORG}/{repo}/actions/permissions",
              "-F", "enabled=true", "-f", "allowed_actions=all"], check=False)
     notes["actions"] = "enabled" if r.returncode == 0 else f"enable failed: {r.stderr.strip()[:120]}"
+
+
+def register_workflows(path, repo: str, notes: dict):
+    """Enabling Actions is not enough on a fork: GitHub only registers its workflows when
+    a git push that edits a workflow file lands on a branch matching that workflow's push
+    trigger (a commit made through the contents API does not count). OCA's test.yml
+    triggers on <target>-ocabot-*, so a one-line edit pushed to a throwaway branch of that
+    name registers them without touching <target>; the branch and its runs are removed."""
+    api = f"repos/{ORG}/{repo}"
+    wf = gh_json(["api", f"{api}/actions/workflows"])
+    if not isinstance(wf, dict) or wf.get("total_count"):
+        return
+    wf_path = ".github/workflows/test.yml"
+    text = run(["git", "show", f"origin/{TARGET}:{wf_path}"], cwd=path, check=False).stdout
+    if f"{TARGET}-ocabot-" not in text:
+        notes["actions"] = f"workflows not registered: no test.yml triggering on {TARGET}-ocabot-*"
+        return
+    branch = f"{TARGET}-ocabot-register-workflows"
+    # build the commit with plumbing on a private index: the clone's checkout is untouched
+    text += ("" if text.endswith("\n") else "\n") + "# registers this fork's workflows\n"
+    blob = subprocess.run(["git", "hash-object", "-w", "--stdin"], cwd=path, input=text,
+                          capture_output=True, text=True, check=True).stdout.strip()
+    env = dict(os.environ, GIT_INDEX_FILE=str(SCRATCH / f"register-{repo}.index"))
+    run(["git", "read-tree", f"origin/{TARGET}"], cwd=path, env=env)
+    run(["git", "update-index", "--cacheinfo", f"100644,{blob},{wf_path}"], cwd=path, env=env)
+    tree = run(["git", "write-tree"], cwd=path, env=env).stdout.strip()
+    commit = run(["git", "commit-tree", tree, "-p", f"origin/{TARGET}", "-m",
+                  "[CI] register this fork's workflows (temporary branch)"], cwd=path).stdout.strip()
+    try:
+        run(["git", "push", "-q", "origin", f"{commit}:refs/heads/{branch}"], cwd=path)
+        for _ in range(12):
+            time.sleep(5)
+            wf = gh_json(["api", f"{api}/actions/workflows"])
+            if isinstance(wf, dict) and wf.get("total_count"):
+                break
+        notes["actions"] = ("workflows registered" if isinstance(wf, dict) and wf.get("total_count")
+                            else "workflows not registered after 60s")
+    finally:
+        # the push starts a run per workflow, a few seconds after registration: wait for them
+        expected = wf.get("total_count", 0) if isinstance(wf, dict) else 0
+        for _ in range(6):
+            runs = gh_json(["api", f"{api}/actions/runs?branch={branch}"]) or {}
+            found = runs.get("workflow_runs", []) if isinstance(runs, dict) else []
+            if len(found) >= expected:
+                break
+            time.sleep(5)
+        for r in found:
+            run(["gh", "api", "-X", "POST", f"{api}/actions/runs/{r['id']}/cancel"], check=False)
+        run(["git", "push", "-q", "origin", "--delete", branch], cwd=path, check=False)
+        (SCRATCH / f"register-{repo}.index").unlink(missing_ok=True)
+    log(f"[{repo}] {notes.get('actions', 'workflows not registered')}")
 
 
 def sync_source_branch(path, repo, branch, notes):
@@ -171,6 +225,7 @@ def main(repos):
             for b in SOURCES:
                 sync_source_branch(path, repo, b, notes)
             sync_target_branch(path, repo, notes)
+            register_workflows(path, repo, notes)
         except Exception as e:  # keep going; one repo must not sink the run
             notes["error"] = str(e)[:500]
             log(f"[{repo}] ERROR {e}")
