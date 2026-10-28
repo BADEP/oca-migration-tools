@@ -19,8 +19,13 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = yaml.safe_load((ROOT / "config.yaml").read_text())
-WORK = Path(os.environ.get("OCA_WORK_DIR", ROOT / ".work"))
+WORK = Path(os.environ.get("OCA_WORK_DIR", ROOT / ".work"))   # clones of the BADEP forks
 WORK.mkdir(exist_ok=True)
+# generated files (sync notes, oca-port logs, core addon cache); kept apart from the clones
+SCRATCH = Path(os.environ.get("OCA_SCRATCH_DIR", WORK))
+SCRATCH.mkdir(parents=True, exist_ok=True)
+# an existing odoo/odoo clone to read core addons from; scan.py clones a minimal one otherwise
+ODOO_CORE_DIR = os.environ.get("ODOO_CORE_DIR", "")
 
 ORG = CONFIG["org"]
 UP = CONFIG["upstream_org"]
@@ -249,7 +254,7 @@ def oca_port_dry_run(path: Path, repo: str, module: str, source: str) -> str:
     upstream/<source> to upstream/<target>. Returns a short, CSV-safe summary.
 
     oca-port reads GITHUB_TOKEN for its PR lookups. Empty string when the tool is
-    missing or fails; the raw output is kept in .work/oca-port-<repo>-<module>.txt.
+    missing or fails; the raw output is kept in <OCA_SCRATCH_DIR>/oca-port-<repo>-<module>.txt.
     """
     import shutil
     if not shutil.which("oca-port"):
@@ -262,7 +267,7 @@ def oca_port_dry_run(path: Path, repo: str, module: str, source: str) -> str:
     if r.returncode != 0 or not r.stdout.strip().startswith("{"):
         r = run(base, cwd=path, check=False, env=env)
     out = (r.stdout or "") + ("\n" + r.stderr if r.stderr else "")
-    (WORK / f"oca-port-{repo}-{module}.txt").write_text(out)
+    (SCRATCH / f"oca-port-{repo}-{module}.txt").write_text(out)
     if r.returncode != 0 and not r.stdout.strip():
         return ""
     txt = r.stdout.strip()

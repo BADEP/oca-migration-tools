@@ -25,3 +25,16 @@ Hard rules, whatever the request:
 
 Local setup: `bash bootstrap.sh`, a GitHub token in `GH_TOKEN` with access to the forks.
 Odoo is not needed locally; tests run in the forks' CI on each PR.
+
+Directories (all default to `.work/`, which is what the Actions workflow uses):
+
+- `OCA_WORK_DIR`: clones of the BADEP forks (`origin` = BADEP, `upstream` = OCA), one
+  per repo. The scripts switch branches, rebase and push there.
+- `OCA_SCRATCH_DIR`: generated files (`sync-<repo>.json`, `oca-port-*.txt`,
+  `core-<target>.json`, the minimal `odoo-core` clone). Keep it out of your own repos.
+- `ODOO_CORE_DIR`: optional existing odoo/odoo clone; read only (no fetch, no checkout)
+  to list core addons instead of cloning `odoo-core`.
+
+On a workstation whose clones follow `<org>/<repo>`, for example:
+`OCA_WORK_DIR=~/Odoo/repos/BADEP/OCA OCA_SCRATCH_DIR=~/oca-migration-tools/.work
+ODOO_CORE_DIR=~/Odoo/repos/odoo/odoo`.

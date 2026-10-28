@@ -13,14 +13,14 @@ For every enabled repo:
   * every surviving 20.0-mig-<module> branch is rebased on the fresh OCA/20.0 so the
     migration branch always starts from upstream
 
-Writes sync notes into `.work/sync-<repo>.json` which scan.py merges into the CSV.
+Writes sync notes into `<OCA_SCRATCH_DIR>/sync-<repo>.json` which scan.py merges into the CSV.
 """
 from __future__ import annotations
 
 import json
 import sys
 
-from common import (CONFIG, ORG, SOURCES, TARGET, UP, WORK, branch_exists, clone_path,
+from common import (CONFIG, ORG, SCRATCH, SOURCES, TARGET, UP, branch_exists, clone_path,
                     ensure_clone, gh_json, list_modules, load_repos, log, mig_branches, run)
 
 
@@ -175,7 +175,7 @@ def main(repos):
             notes["error"] = str(e)[:500]
             log(f"[{repo}] ERROR {e}")
         finally:
-            (WORK / f"sync-{repo}.json").write_text(json.dumps(notes, indent=1))
+            (SCRATCH / f"sync-{repo}.json").write_text(json.dumps(notes, indent=1))
             log(f"[{repo}]", json.dumps(notes))
 
 

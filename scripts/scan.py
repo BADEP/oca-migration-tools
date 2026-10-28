@@ -12,8 +12,9 @@ from __future__ import annotations
 import datetime as dt
 import json
 import sys
+from pathlib import Path
 
-from common import (CONFIG, ORG, REPORT_DIR, SOURCES, TARGET, UP, WORK, ci_state,
+from common import (CONFIG, ODOO_CORE_DIR, ORG, REPORT_DIR, SCRATCH, SOURCES, TARGET, UP, ci_state,
                     ensure_clone, fork_open_prs, list_modules, load_overrides, load_repos,
                     log, mig_branches, oca_port_dry_run, parse_migration_issue, pypi_downloads,
                     read_report, run,
@@ -29,14 +30,24 @@ def path_of(repo):
 
 def core_addons() -> set[str]:
     """Top-level addon names of odoo/odoo on the target branch (cached per run)."""
-    cache = WORK / f"core-{TARGET}.json"
+    cache = SCRATCH / f"core-{TARGET}.json"
     if cache.exists():
         return set(json.loads(cache.read_text()))
-    path = WORK / "odoo-core"
-    if not (path / ".git").exists():
-        run(["git", "clone", "--filter=tree:0", "--no-checkout", "--depth", "1", "-b", TARGET,
-             "https://github.com/odoo/odoo.git", str(path)])
-    names = run(["git", "ls-tree", "--name-only", "HEAD:addons"], cwd=path).stdout.split()
+    if ODOO_CORE_DIR:
+        # read-only use of an existing clone: no fetch, no checkout
+        path = Path(ODOO_CORE_DIR)
+        for ref in (f"origin/{TARGET}", TARGET):
+            if run(["git", "rev-parse", "-q", "--verify", ref], cwd=path, check=False).returncode == 0:
+                break
+        else:
+            raise SystemExit(f"ODOO_CORE_DIR={path} has no branch {TARGET}")
+    else:
+        path = SCRATCH / "odoo-core"
+        if not (path / ".git").exists():
+            run(["git", "clone", "--filter=tree:0", "--no-checkout", "--depth", "1", "-b", TARGET,
+                 "https://github.com/odoo/odoo.git", str(path)])
+        ref = "HEAD"
+    names = run(["git", "ls-tree", "--name-only", f"{ref}:addons"], cwd=path).stdout.split()
     names += ["base", "web"]
     cache.write_text(json.dumps(sorted(names)))
     return set(names)
@@ -52,7 +63,7 @@ def scan_repo(repo: str) -> dict:
     our_prs = fork_open_prs(repo)
     our_mig = {b.removeprefix(f"{TARGET}-mig-") for b in mig_branches(path)}
     sync_notes = {}
-    p = WORK / f"sync-{repo}.json"
+    p = SCRATCH / f"sync-{repo}.json"
     if p.exists():
         sync_notes = json.loads(p.read_text())
     return {
