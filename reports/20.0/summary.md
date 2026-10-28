@@ -1,6 +1,6 @@
 # OCA → 20.0 migration status
 
-Generated 2026-10-28 19:52 UTC · 47 repos · 2249 modules tracked
+Generated 2026-10-28 23:41 UTC · 47 repos · 2249 modules tracked
 
 ## Totals
 
@@ -10,87 +10,38 @@ Generated 2026-10-28 19:52 UTC · 47 repos · 2249 modules tracked
 | skipped-relevancy | 33 |
 | claimed-by-others | 87 |
 | blocked-by-deps | 446 |
-| in-progress | 25 |
+| pr-to-fork | 25 |
 | merged-in-fork | 126 |
 | ready-for-upstream-pr | 545 |
 
 ## Changes since last run
 
-### blocked-by-deps → claimed-by-others (6)
-- account-financial-tools/account_move_line_purchase_info
-- account-financial-tools/account_move_line_sale_info
-- contract/contract_termination
-- dms/dms_field
-- manufacture/mrp_production_quant_manual_assign
-- report-print-send/printer_zpl2
+### CI failing on our fork PR (23)
+- account-analytic/account_analytic_distribution_manual https://github.com/BADEP/account-analytic/pull/15
+- account-analytic/account_analytic_parent https://github.com/BADEP/account-analytic/pull/16
+- account-financial-tools/account_loan https://github.com/BADEP/account-financial-tools/pull/24
+- account-invoicing/account_manual_currency https://github.com/BADEP/account-invoicing/pull/36
+- account-reconcile/account_mass_reconcile https://github.com/BADEP/account-reconcile/pull/3
+- account-reconcile/account_reconcile_model_oca https://github.com/BADEP/account-reconcile/pull/2
+- delivery-carrier/delivery_package_number https://github.com/BADEP/delivery-carrier/pull/13
+- edi/account_einvoice_generate https://github.com/BADEP/edi/pull/5
+- knowledge/attachment_preview https://github.com/BADEP/knowledge/pull/2
+- partner-contact/partner_email_check https://github.com/BADEP/partner-contact/pull/63
+- pos/pos_order_to_sale_order https://github.com/BADEP/pos/pull/4
+- reporting-engine/bi_view_editor https://github.com/BADEP/reporting-engine/pull/20
+- sale-workflow/sale_procurement_group_by_line https://github.com/BADEP/sale-workflow/pull/91
+- social/mail_attach_existing_attachment https://github.com/BADEP/social/pull/7
+- social/mail_autosubscribe https://github.com/BADEP/social/pull/9
+- social/mail_debrand https://github.com/BADEP/social/pull/6
+- social/mail_gateway https://github.com/BADEP/social/pull/8
+- social/mail_outbound_static https://github.com/BADEP/social/pull/5
+- social/mass_mailing_partner https://github.com/BADEP/social/pull/4
+- web/web_theme_classic https://github.com/BADEP/web/pull/40
+- web/web_tree_dynamic_colored_field https://github.com/BADEP/web/pull/38
+- web/web_widget_open_tab https://github.com/BADEP/web/pull/39
+- website/website_odoo_debranding https://github.com/BADEP/website/pull/6
 
-### blocked-by-deps → todo (53)
-- account-analytic/purchase_request_analytic
-- account-analytic/sale_analytic
-- account-financial-tools/account_dashboard_banner_mis_builder
-- account-financial-tools/account_fiscal_month
-- account-financial-tools/account_move_budget
-- account-financial-tools/purchase_unreconciled
-- account-invoicing/account_invoice_auto_send_by_email
-- account-invoicing/product_customerinfo_invoice
-- account-reconcile/account_reconcile_oca_add_default_filters
-- account-reconcile/account_reconcile_oca_queue
-- bank-payment/account_banking_mandate_contact
-- bank-payment/account_banking_mandate_sale
-- bank-payment/account_banking_sepa_direct_debit
-- contract/contract_mandate
-- contract/contract_price_revision
-- contract/contract_sale_payment_mode
-- contract/product_contract
-- delivery-carrier/delivery_carrier_report_to_printer
-- dms/dms_attachment_link
-- dms/dms_auto_classification
-- dms/dms_field_auto_classification
-- dms/dms_file_sequence
-- dms/hr_dms_field
-- edi/account_invoice_export_job
-- manufacture/mrp_mass_production_order
-- partner-contact/partner_noncommercial
-- project/project_task_code_portal
-- project/project_task_stock_product_set
-- project/website_project_task_code
-- purchase-workflow/product_supplierinfo_qty_multiplier
-- purchase-workflow/purchase_order_approval_block
-- purchase-workflow/purchase_transport_mode
-- queue/test_queue_job_batch
-- reporting-engine/report_async
-- sale-workflow/pricelist_cache
-- sale-workflow/sale_automatic_workflow_auto_assign
-- sale-workflow/sale_automatic_workflow_force_invoiced
-- sale-workflow/sale_automatic_workflow_payment_mode
-- sale-workflow/sale_automatic_workflow_periodicity
-- sale-workflow/sale_automatic_workflow_stock
-- sale-workflow/sale_block_no_stock
-- sale-workflow/sale_cancel_confirm
-- sale-workflow/sale_invoice_policy
-- sale-workflow/sale_order_invoicing_picking_filter
-- sale-workflow/sale_order_product_availability_inline
-- sale-workflow/sale_order_product_recommendation_packaging_default
-- sale-workflow/sale_stock_line_sequence
-- stock-logistics-barcode/stock_barcodes
-- stock-logistics-warehouse/stock_demand_estimate_matrix
-- stock-logistics-warehouse/stock_exception
-- stock-logistics-warehouse/stock_inventory_preparation_filter
-- stock-logistics-warehouse/stock_vertical_lift
-- web/web_notify_channel_message
-
-### merged-in-fork → ready-for-upstream-pr (3)
-- account-analytic/purchase_analytic
-- account-invoicing/account_invoice_transmit_method
-- web/web_m2x_options_manager
-
-### new candidates (4)
-- account-invoicing/account_invoice_ar_ap_by_journal
-- account-invoicing/account_invoice_supplier_self_invoice
-- delivery-carrier/delivery_fee_deposit
-- product-attribute/product_supplierinfo_incoterm
-
-### pr-to-fork → in-progress (25)
+### in-progress → pr-to-fork (25)
 - account-analytic/account_analytic_distribution_manual
 - account-analytic/account_analytic_parent
 - account-financial-tools/account_loan
@@ -117,26 +68,9 @@ Generated 2026-10-28 19:52 UTC · 47 repos · 2249 modules tracked
 - web/web_widget_open_tab
 - website/website_odoo_debranding
 
-### removed from report (5)
-- product-attribute/product_attribute_value_avoid_auto_fill
-- product-attribute/product_code_mandatory
-- product-attribute/product_manufacturer
-- web/web_dialog_size
-- web/web_responsive
-
-### todo → blocked-by-deps (1)
-- web/web_responsive_company_color
-
-### todo → claimed-by-others (5)
-- bank-payment/account_banking_mandate
-- bank-payment/account_payment_sale
-- contract/contract_line_successor
-- purchase-workflow/purchase_order_internal_note
-- report-print-send/base_report_to_printer_cups
-
 ## Per repo
 
-| repo | todo | skipped-relevancy | claimed-by-others | blocked-by-deps | in-progress | merged-in-fork | ready-for-upstream-pr |
+| repo | todo | skipped-relevancy | claimed-by-others | blocked-by-deps | pr-to-fork | merged-in-fork | ready-for-upstream-pr |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [account-analytic](account-analytic.csv) | 23 | 0 | 0 | 2 | 2 | 4 | 9 |
 | [account-financial-reporting](account-financial-reporting.csv) | 5 | 0 | 0 | 1 | 0 | 4 | 1 |
