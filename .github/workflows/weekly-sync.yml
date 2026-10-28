@@ -55,6 +55,8 @@ jobs:
           git add reports repos.csv
           git diff --cached --quiet && echo "no changes" && exit 0
           git commit -m "[REPORT] weekly scan $(date -u +%F)"
+          # 20.0 may have moved during the run (e.g. a Claude run pushing reports)
+          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push
       - name: Upload work notes
         if: always()
