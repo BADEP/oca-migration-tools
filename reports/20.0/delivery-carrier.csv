@@ -34,7 +34,7 @@ delivery-carrier,delivery_dropoff_site,18.0,no,relevant,Generic drop-off site co
 delivery-carrier,delivery_easypost_oca,18.0,no,relevant,"Community EasyPost integration, core connector is Enterprise only",,,,276,migrate,stock_delivery mail,ok,,,,,,,yes,todo,2026-10-30,
 delivery-carrier,delivery_estimated_package_quantity_by_weight,18.0,no,relevant,Theoretical package count estimation not in core,,,,1164,migrate,stock_delivery,ok,,,,,,,yes,todo,2026-10-30,
 delivery-carrier,delivery_fee,18.0,no,relevant,Separate delivery fees beyond shipping charges not in core,,,,230,migrate,stock_delivery,ok,,,,,,,yes,todo,2026-10-30,
-delivery-carrier,delivery_fee_deposit,18.0,no,,,,,,78,migrate,delivery_fee stock_customer_deposit,blocked,delivery_fee:missing stock_customer_deposit:missing,,,,,,yes,blocked-by-deps,2026-10-30,
+delivery-carrier,delivery_fee_deposit,18.0,no,relevant,Glue between delivery_fee and stock_customer_deposit; no core equivalent,,,,78,migrate,delivery_fee stock_customer_deposit,blocked,delivery_fee:missing stock_customer_deposit:missing,,,,,,yes,blocked-by-deps,2026-10-30,
 delivery-carrier,delivery_free_fee_removal,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/delivery-carrier/pull/1282,24,1232,migrate; 1 PR(s) to port,delivery,ok,,20.0-mig-delivery_free_fee_removal,,,,,yes,ready-for-upstream-pr,2026-10-30,
 delivery-carrier,delivery_free_over_untaxed_price,18.0,no,relevant,Core free shipping threshold uses taxed amount,,,,533,migrate,delivery,ok,,,,,,,yes,todo,2026-10-30,
 delivery-carrier,delivery_multi_destination,19.0,no,relevant,Restores nested per-destination pricing absent from core,,,,1571,migrate,delivery,ok,,,,,,,yes,todo,2026-10-30,
