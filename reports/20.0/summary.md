@@ -1,22 +1,28 @@
 # OCA → 20.0 migration status
 
-Generated 2026-10-30 12:32 UTC · 47 repos · 2247 modules tracked
+Generated 2026-10-30 16:54 UTC · 47 repos · 2247 modules tracked
 
 ## Totals
 
 | status | modules |
 |---|---:|
-| todo | 977 |
+| todo | 976 |
 | skipped-relevancy | 33 |
-| claimed-by-others | 104 |
-| blocked-by-deps | 443 |
+| claimed-by-others | 106 |
+| blocked-by-deps | 442 |
 | pr-to-fork | 25 |
 | merged-in-fork | 125 |
 | ready-for-upstream-pr | 540 |
 
 ## Changes since last run
 
-_none_
+### blocked-by-deps → todo (1)
+- server-tools/test_base_time_window
+
+### todo → claimed-by-others (2)
+- account-invoicing/account_invoice_tax_required
+- sale-workflow/sale_product_catalog_extended
+
 ## Per repo
 
 | repo | todo | skipped-relevancy | claimed-by-others | blocked-by-deps | pr-to-fork | merged-in-fork | ready-for-upstream-pr |
@@ -24,7 +30,7 @@ _none_
 | [account-analytic](account-analytic.csv) | 22 | 0 | 2 | 1 | 2 | 4 | 9 |
 | [account-financial-reporting](account-financial-reporting.csv) | 5 | 0 | 0 | 1 | 0 | 4 | 1 |
 | [account-financial-tools](account-financial-tools.csv) | 17 | 0 | 3 | 7 | 1 | 3 | 19 |
-| [account-invoicing](account-invoicing.csv) | 43 | 2 | 1 | 10 | 1 | 8 | 27 |
+| [account-invoicing](account-invoicing.csv) | 42 | 2 | 2 | 10 | 1 | 8 | 27 |
 | [account-reconcile](account-reconcile.csv) | 14 | 0 | 1 | 1 | 2 | 0 | 1 |
 | [bank-payment](bank-payment.csv) | 11 | 0 | 4 | 6 | 0 | 0 | 1 |
 | [bank-statement-import](bank-statement-import.csv) | 9 | 0 | 7 | 9 | 0 | 0 | 0 |
@@ -55,10 +61,10 @@ _none_
 | [queue](queue.csv) | 5 | 0 | 2 | 0 | 0 | 0 | 1 |
 | [report-print-send](report-print-send.csv) | 5 | 0 | 3 | 2 | 0 | 0 | 0 |
 | [reporting-engine](reporting-engine.csv) | 13 | 0 | 1 | 5 | 1 | 4 | 15 |
-| [sale-workflow](sale-workflow.csv) | 79 | 2 | 4 | 32 | 1 | 23 | 66 |
+| [sale-workflow](sale-workflow.csv) | 78 | 2 | 5 | 32 | 1 | 23 | 66 |
 | [server-auth](server-auth.csv) | 12 | 0 | 6 | 6 | 0 | 1 | 8 |
 | [server-backend](server-backend.csv) | 10 | 0 | 0 | 2 | 0 | 2 | 4 |
-| [server-tools](server-tools.csv) | 26 | 0 | 4 | 7 | 0 | 2 | 26 |
+| [server-tools](server-tools.csv) | 27 | 0 | 4 | 6 | 0 | 2 | 26 |
 | [server-ux](server-ux.csv) | 12 | 0 | 1 | 6 | 0 | 0 | 16 |
 | [social](social.csv) | 42 | 1 | 0 | 17 | 6 | 0 | 3 |
 | [stock-logistics-barcode](stock-logistics-barcode.csv) | 4 | 0 | 2 | 2 | 0 | 0 | 0 |
@@ -71,7 +77,3 @@ _none_
 
 ## Notes from this run
 
-- 2026-10-30: scan was stale (10-28); re-ran "Weekly OCA sync & scan" (success, ~63 min), pulled fresh CSVs.
-- Relevancy: 8 modules got verdicts (all `relevant`) via an Opus subagent and are committed.
-- Migration NOT run: this session has no add_repo tool, so BADEP/<repo> forks cannot be attached with push access (only oca-migration-tools and addons are allowed).
-- Result: 0 migrated, 0 PRs opened, no CI/repair/merge steps. Re-attach the forks (or fix the scheduled task's repo access) and re-run.

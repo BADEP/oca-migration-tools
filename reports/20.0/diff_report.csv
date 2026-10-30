@@ -41,7 +41,7 @@ account-financial-tools,account_move_template,-16,-20,0,0,0,1,review,True
 account-financial-tools,account_move_total_by_account_internal_group,0,0,0,0,-18,-3,review,True
 account-financial-tools,account_netting,-1,0,0,-3,-1,-3,review,True
 account-financial-tools,account_partner_required,0,3,0,0,-24,-3,review,True
-account-financial-tools,account_payroll_sheet_import,-9,-20,0,0,0,2,review,True
+account-financial-tools,account_payroll_sheet_import,-23,-21,-52,-47,-17,2,review,True
 account-invoicing,account_billing,-4,-19,0,-2,-11,-1,review,True
 account-invoicing,account_global_discount,-7,-17,0,6,-9,-2,review,True
 account-invoicing,account_invoice_clearing,-3,0,0,0,0,0,review,True
@@ -326,7 +326,7 @@ project,project_merge,0,2,0,0,0,-3,review,True
 project,project_parent,0,0,0,0,1,-3,review,True
 project,project_parent_task_filter,0,0,0,0,0,0,formatting,False
 project,project_pivot,0,0,0,0,-18,-3,review,True
-project,project_sequence,0,-2,0,0,0,0,review,True
+project,project_sequence,0,22,0,0,0,0,review,True
 project,project_stage_extra_info,-1,0,0,0,-8,-3,review,True
 project,project_tag_hierarchy,0,0,0,2,-3,-3,review,True
 project,project_tag_multicompany,0,-8,0,0,-9,-1,review,True
@@ -343,7 +343,7 @@ project,project_task_parent_due_auto,0,0,0,2,0,-3,review,True
 project,project_task_personal_stage_auto_fold,0,0,0,0,-4,-3,review,True
 project,project_task_product,-2,0,0,0,0,0,review,True
 project,project_task_product_stock,0,0,0,0,0,0,formatting,False
-project,project_task_pull_request,0,0,0,2,-16,-3,review,True
+project,project_task_pull_request,-1,0,0,2,-16,-3,review,True
 project,project_task_pull_request_state,0,0,0,0,0,0,formatting,False
 project,project_task_stage_auto_state,2,0,0,-2,2,0,review,True
 project,project_task_stage_lock,0,0,0,0,0,0,formatting,False

@@ -3,7 +3,7 @@ queue,base_import_async,18.0,no,relevant,core import has no background job execu
 queue,queue_job_batch,18.0,no,relevant,"groups queue jobs into batches, not provided by core",,,,1507,port_commits; 2 PR(s) to port,queue_job,ok,,,,,,,yes,todo,2026-10-30,
 queue,queue_job_cron,18.0,no,,,thomas-tankengine,https://github.com/OCA/queue/pull/1012,14,6556,analysed,queue_job,ok,,,,,,,yes,claimed-by-others,2026-10-30,
 queue,queue_job_cron_jobrunner,18.0,no,,,alan196,https://github.com/OCA/queue/pull/1008,18,3276,analysed,queue_job,ok,,,,,,,yes,claimed-by-others,2026-10-30,
-queue,queue_job_profiler,18.0,no,relevant,adds per-job-function profiling to the OCA job queue,,,,493,migrate,queue_job,ok,,,,,,,yes,todo,2026-10-30,
+queue,queue_job_profiler,18.0,no,relevant,adds per-job-function profiling to the OCA job queue,,,,493,,queue_job,ok,,,,,,,yes,todo,2026-10-30,
 queue,queue_job_subscribe,19.0,no,relevant,"controls follower subscription on failed jobs, extends queue_job",,,,1951,port_commits; 1 PR(s) to port,queue_job,ok,,,,,,,yes,todo,2026-10-30,
 queue,test_queue_job,19.0,no,,,dhongu,https://github.com/OCA/queue/pull/1021,3,2089,port_commits; 2 PR(s) to port,queue_job,ok,,20.0-mig-test_queue_job,,,,,yes,ready-for-upstream-pr,2026-10-30,
 queue,test_queue_job_batch,18.0,no,relevant,test module needed alongside the batch addon,,,,154,analysed,queue_job_batch test_queue_job,needs-pr-merge,queue_job_batch:missing test_queue_job:pr=OCA/queue#1021,,,,,,yes,todo,2026-10-30,
