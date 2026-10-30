@@ -1,6 +1,6 @@
 # OCA → 20.0 migration status
 
-Generated 2026-10-30 12:08 UTC · 47 repos · 2247 modules tracked
+Generated 2026-10-30 12:32 UTC · 47 repos · 2247 modules tracked
 
 ## Totals
 
@@ -16,58 +16,7 @@ Generated 2026-10-30 12:08 UTC · 47 repos · 2247 modules tracked
 
 ## Changes since last run
 
-### blocked-by-deps → claimed-by-others (5)
-- dms/web_editor_media_dialog_dms
-- manufacture/mrp_multi_level
-- server-auth/vault_share
-- vertical-hotel/hotel_restaurant
-- vertical-hotel/report_hotel_restaurant
-
-### blocked-by-deps → todo (5)
-- account-analytic/account_analytic_parent_plan_restrict
-- manufacture/mrp_multi_level_consume_safety_stock
-- manufacture/mrp_multi_level_estimate
-- sale-workflow/sale_product_catalog_extended
-- server-ux/server_action_mass_edit_onchange
-
-### merged-in-fork → ready-for-upstream-pr (1)
-- queue/test_queue_job
-
-### new candidates (4)
-- contract/contract_line_defer
-- contract/contract_line_defer_successor
-- contract/product_contract_line_defer
-- social/social_media_x_sync
-
-### removed from report (6)
-- partner-contact/partner_contact_department
-- purchase-workflow/purchase_all_shipments
-- queue/queue_job
-- web/web_quick_start_screen
-- web/web_refresher
-- web/web_widget_numeric_step
-
-### todo → blocked-by-deps (5)
-- edi/account_invoice_export_job
-- manufacture/mrp_production_serial_matrix_queue_job
-- sale-workflow/pricelist_cache
-- sale-workflow/sale_order_product_recommendation_packaging_default
-- stock-logistics-barcode/stock_barcodes
-
-### todo → claimed-by-others (12)
-- account-analytic/account_analytic_line_commercial_partner
-- account-analytic/mrp_stock_analytic
-- account-financial-tools/account_move_budget
-- dms/hr_dms_field
-- manufacture/mrp_warehouse_calendar
-- purchase-workflow/purchase_lot
-- sale-workflow/sale_order_lot_generator
-- server-auth/vault
-- stock-logistics-workflow/sale_stock_picking_invoice_link
-- vertical-hotel/report_hotel_reservation
-- web/web_filter_header_button
-- web/web_pivot_computed_measure
-
+_none_
 ## Per repo
 
 | repo | todo | skipped-relevancy | claimed-by-others | blocked-by-deps | pr-to-fork | merged-in-fork | ready-for-upstream-pr |
@@ -122,3 +71,7 @@ Generated 2026-10-30 12:08 UTC · 47 repos · 2247 modules tracked
 
 ## Notes from this run
 
+- 2026-10-30: scan was stale (10-28); re-ran "Weekly OCA sync & scan" (success, ~63 min), pulled fresh CSVs.
+- Relevancy: 8 modules got verdicts (all `relevant`) via an Opus subagent and are committed.
+- Migration NOT run: this session has no add_repo tool, so BADEP/<repo> forks cannot be attached with push access (only oca-migration-tools and addons are allowed).
+- Result: 0 migrated, 0 PRs opened, no CI/repair/merge steps. Re-attach the forks (or fix the scheduled task's repo access) and re-run.
