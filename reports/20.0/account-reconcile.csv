@@ -2,7 +2,7 @@ repo,module,source_branch,in_upstream_target,relevancy,relevancy_rationale,claim
 account-reconcile,account_in_payment,19.0,no,relevant,Community lacks in-payment state handling without Enterprise accounting,,,,2359,,account_reconcile_oca,needs-pr-merge,account_reconcile_oca:pr=OCA/account-reconcile#1049,,,,,,yes,todo,2026-11-06,
 account-reconcile,account_mass_reconcile,18.0,no,relevant,Profile-based automated mass reconciliation not available in core,,,,6134,,account,ok,,20.0-mig-account_mass_reconcile,https://github.com/BADEP/account-reconcile/pull/3,fail,py:0 xml:0 i18n:0 tests:0 docs:0 other:0,formatting,yes,pr-to-fork,2026-11-06,
 account-reconcile,account_move_base_import,18.0,no,relevant,Journal entry import with completion rules not provided by core,,,,1607,,account,ok,,,,,,,yes,todo,2026-11-06,
-account-reconcile,account_move_line_reconcile_manual,18.0,no,,,,,,697,,account,ok,,,,,,,yes,todo,2026-11-06,
+account-reconcile,account_move_line_reconcile_manual,18.0,no,relevant,"Fast wizard to reconcile selected journal items; no core equivalent, not deprecated.",,,,697,,account,ok,,,,,,,yes,todo,2026-11-06,
 account-reconcile,account_move_reconcile_forbid_cancel,18.0,no,relevant,Restricts cancelling reconciled entries beyond native behaviour,,,,618,,account,ok,,,,,,,yes,todo,2026-11-06,
 account-reconcile,account_move_reconcile_helper,18.0,no,relevant,Adds helper buttons and balance field to journal items,,,,608,,account,ok,,,,,,,yes,todo,2026-11-06,
 account-reconcile,account_move_so_import,18.0,no,relevant,Glue adding sale order completion rules to entry import,,,,403,,account_move_base_import sale,blocked,account_move_base_import:missing,,,,,,yes,blocked-by-deps,2026-11-06,

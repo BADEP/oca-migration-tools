@@ -22,7 +22,7 @@ server-tools,base_partition,19.0,no,,,Expert-Odoo,https://github.com/OCA/server-
 server-tools,base_remote,18.0,no,relevant,Technical base storing remote IPs for other modules,,,,998,,web,ok,,,,,,,yes,todo,2026-11-06,
 server-tools,base_search_fuzzy,19.0,no,,,adasatorres-tecnativa,https://github.com/OCA/server-tools/pull/3846,2,6799,,base,ok,,20.0-mig-base_search_fuzzy,,,,,yes,ready-for-upstream-pr,2026-11-06,
 server-tools,base_sequence_option,18.0,no,relevant,Domain-based alternative sequences not offered natively,,,,1648,,base,ok,,,,,,,yes,todo,2026-11-06,
-server-tools,base_sequence_template,18.0,no,,,,,,154,,base_setup,ok,,,,,,,yes,todo,2026-11-06,
+server-tools,base_sequence_template,18.0,no,relevant,Wizard building per-company sequences from templates; not core.,,,,154,,base_setup,ok,,,,,,,yes,todo,2026-11-06,
 server-tools,base_sparse_field_list_support,18.0,no,relevant,Technical extension of serialized fields for list values,,,,909,,base base_sparse_field,ok,,,,,,,yes,todo,2026-11-06,
 server-tools,base_technical_user,19.0,no,,,BhaveshHeliconia,https://github.com/OCA/server-tools/pull/3782,28,6352,,base,ok,,20.0-mig-base_technical_user,,,,,yes,ready-for-upstream-pr,2026-11-06,
 server-tools,base_temporary_action,18.0,no,relevant,Technical helper for auto-removed temporary actions,,,,734,,base,ok,,,,,,,yes,todo,2026-11-06,

@@ -8,7 +8,7 @@ manufacture,mrp_bom_component_menu,19.0,no,,,ristecona,https://github.com/OCA/ma
 manufacture,mrp_bom_hierarchy,19.0,no,relevant,BoM hierarchy navigation helpers not offered by core,,,,904,,mrp,ok,,,,,,,yes,todo,2026-11-06,
 manufacture,mrp_bom_image,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/manufacture/pull/1901,11,1206,,mrp,ok,,20.0-mig-mrp_bom_image,,,,,yes,ready-for-upstream-pr,2026-11-06,
 manufacture,mrp_bom_line_formula_quantity,18.0,no,relevant,formula-based component quantities not supported natively,,,,731,,mrp,ok,,,,,,,yes,todo,2026-11-06,
-manufacture,mrp_bom_line_net_qty,18.0,no,,,,,,317,,mrp,ok,,,,,,,yes,todo,2026-11-06,
+manufacture,mrp_bom_line_net_qty,18.0,no,relevant,Gross/net qty with loss percentage on BoM lines; not known native.,,,,317,,mrp,ok,,,,,,,yes,todo,2026-11-06,
 manufacture,mrp_bom_line_uom_rounding,18.0,no,relevant,"enforces UoM rounding on BoM lines, extra validation over core",,,,466,,mrp,ok,,,,,,,yes,todo,2026-11-06,
 manufacture,mrp_bom_location,18.0,no,relevant,"adds location on BoM and components, not in core",,,,2185,,mrp,ok,,,,,,,yes,todo,2026-11-06,
 manufacture,mrp_bom_note,19.0,no,,,ristecona,https://github.com/OCA/manufacture/pull/1898,17,984,,mrp,ok,,20.0-mig-mrp_bom_note,,,,,yes,ready-for-upstream-pr,2026-11-06,

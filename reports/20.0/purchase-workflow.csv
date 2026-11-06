@@ -54,7 +54,7 @@ purchase-workflow,purchase_order_general_discount,19.0,no,,,sudhir-erpharbor,htt
 purchase-workflow,purchase_order_line_deep_sort,19.0,no,,,,,,755,migrate,purchase,ok,,20.0-mig-purchase_order_line_deep_sort,,,,,yes,ready-for-upstream-pr,2026-11-06,
 purchase-workflow,purchase_order_line_description,19.0,no,,,chienandalu,https://github.com/OCA/purchase-workflow/pull/3265,3,952,migrate; 1 PR(s) to port,purchase,ok,,20.0-mig-purchase_order_line_description,,,,,yes,ready-for-upstream-pr,2026-11-06,
 purchase-workflow,purchase_order_line_effective_date,18.0,no,relevant,Effective dates on PO lines are not native,,,,496,migrate,purchase_stock,ok,,,,,,,yes,todo,2026-11-06,
-purchase-workflow,purchase_order_line_import_sheet_file,19.0,no,,,,,,194,migrate,purchase base_import,ok,,,,,,,yes,todo,2026-11-06,
+purchase-workflow,purchase_order_line_import_sheet_file,19.0,no,relevant,Import RFQ lines from XLSX/ODS/CSV; no core wizard.,,,,194,migrate,purchase base_import,ok,,,,,,,yes,todo,2026-11-06,
 purchase-workflow,purchase_order_line_menu,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/purchase-workflow/pull/3210,29,3947,migrate; 1 PR(s) to port,purchase,ok,,20.0-mig-purchase_order_line_menu,,,,,yes,ready-for-upstream-pr,2026-11-06,
 purchase-workflow,purchase_order_line_merge,18.0,no,relevant,Line-level merge into new PO goes beyond core order merge,,,,91,migrate,purchase_order_line_menu purchase_stock,needs-pr-merge,purchase_order_line_menu:pr=OCA/purchase-workflow#3210,,,,,,yes,todo,2026-11-06,
 purchase-workflow,purchase_order_line_note,18.0,no,relevant,Dedicated note field per PO line is not native,,,,415,migrate,purchase,ok,,,,,,,yes,todo,2026-11-06,

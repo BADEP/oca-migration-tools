@@ -135,7 +135,7 @@ stock-logistics-workflow,stock_putaway_hook,17.0,no,relevant,technical hooks for
 stock-logistics-workflow,stock_putaway_last_location,18.0,no,relevant,"putaway to last used location strategy, not core",,,,79,,stock,ok,,,,,,,yes,todo,2026-11-06,
 stock-logistics-workflow,stock_quant_package_dimension,17.0,no,relevant,dimension fields on individual packages,,,,2615,,stock product_packaging_dimension stock_quant_package_product_packaging,blocked,product_packaging_dimension:missing product_logistics_uom:pr=OCA/product-attribute#2468 stock_quant_package_product_packaging:missing,,,,,,yes,blocked-by-deps,2026-11-06,
 stock-logistics-workflow,stock_quant_package_product_packaging,17.0,no,relevant,"auto assigns product packaging to packages, check 19.0 packaging changes",,,,2716,,stock,ok,,,,,,,yes,todo,2026-11-06,
-stock-logistics-workflow,stock_readonly,19.0,no,,,,,,127,,stock,ok,,,,,,,yes,todo,2026-11-06,
+stock-logistics-workflow,stock_readonly,19.0,no,relevant,Read-only Inventory group; core has none.,,,,127,,stock,ok,,,,,,,yes,todo,2026-11-06,
 stock-logistics-workflow,stock_receipt_lot_info,18.0,no,relevant,captures extra lot dates during receipt processing,,,,956,,stock product_expiry,ok,,,,,,,yes,todo,2026-11-06,
 stock-logistics-workflow,stock_reception_discrepancy_distribution,18.0,no,relevant,"distributes receipt surplus across destination moves, not core",,,,701,,sale_purchase_stock,ok,,,,,,,yes,todo,2026-11-06,
 stock-logistics-workflow,stock_reporting_access,18.0,no,relevant,security group for inventory reporting access,,,,215,,stock,ok,,,,,,,yes,todo,2026-11-06,

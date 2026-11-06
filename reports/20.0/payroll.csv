@@ -1,6 +1,6 @@
 repo,module,source_branch,in_upstream_target,relevancy,relevancy_rationale,claimed_by,upstream_open_pr,claim_age_days,downloads,oca_port,deps,deps_status,deps_blocking,our_mig_branch,our_fork_pr,ci,diff_lines,diff_review,self_maintained,status,last_run,notes
 payroll,hr_payroll_document,18.0,no,relevant,encrypted payslip document distribution is not provided by Community core,,,,1698,,hr base_vat,blocked,base_vat:unknown,,,,,,yes,blocked-by-deps,2026-11-06,
-payroll,payroll,19.0,no,,,,,,27343,,hr_holidays mail,ok,,,,,,,yes,todo,2026-11-06,
+payroll,payroll,19.0,no,relevant,Community payroll; core payroll is Enterprise only.,,,,27343,,hr_holidays mail,ok,,,,,,,yes,todo,2026-11-06,
 payroll,payroll_account,18.0,no,,,BhaveshHeliconia,https://github.com/OCA/payroll/pull/319,25,8862,,payroll account,blocked,payroll:missing,,,,,,yes,claimed-by-others,2026-11-06,
 payroll,payroll_contract_advantages,18.0,no,relevant,"extends the OCA payroll engine, Community has no native payroll",,,,1365,,hr_contract payroll,blocked,hr_contract:unknown payroll:missing,,,,,,yes,blocked-by-deps,2026-11-06,
 payroll,payroll_hr_public_holidays,18.0,no,relevant,"glue between OCA payroll and public holidays, no core equivalent",,,,631,,payroll hr_holidays calendar_public_holiday,blocked,payroll:missing calendar_public_holiday:unknown,,,,,,yes,blocked-by-deps,2026-11-06,
