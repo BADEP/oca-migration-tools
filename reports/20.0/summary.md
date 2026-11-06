@@ -1,6 +1,6 @@
 # OCA → 20.0 migration status
 
-Generated 2026-11-06 13:23 UTC · 47 repos · 2243 modules tracked
+Generated 2026-11-06 13:29 UTC · 47 repos · 2243 modules tracked
 
 ## Totals
 
@@ -16,116 +16,7 @@ Generated 2026-11-06 13:23 UTC · 47 repos · 2243 modules tracked
 
 ## Changes since last run
 
-### blocked-by-deps → claimed-by-others (6)
-- commission/sale_commission_oca
-- geospatial/base_geoengine_demo
-- geospatial/geoengine_partner
-- hr/hr_contract_reference
-- hr/hr_employee_ppe
-- hr/hr_job_category
-
-### blocked-by-deps → todo (28)
-- account-financial-tools/account_chart_update_code_digits
-- account-financial-tools/account_chart_update_l10n_eu_oss
-- account-invoicing/account_invoice_transmit_method_substitution_rule
-- bank-payment/account_banking_mandate_sale_contact
-- commission/commission_formula_oca
-- commission/sale_commission_margin_oca
-- commission/sale_commission_oca_product_criteria
-- commission/sale_commission_pricelist_oca
-- commission/sale_commission_salesman
-- connector/connector_base_product
-- connector/test_connector
-- contract/contract_transmit_method
-- crm/crm_partner_employee_quantity
-- delivery-carrier/delivery_dachser
-- edi/base_ebill_payment_contract
-- geospatial/geoengine_base_geolocalize
-- hr/hr_employee_document_from_applicant
-- hr/hr_personal_equipment_stock
-- multi-company/product_multi_company_stock
-- pos/pos_product_multi_barcode
-- product-attribute/product_state_active
-- product-attribute/product_state_stock_base
-- purchase-workflow/purchase_stock_line_sequence
-- sale-workflow/pricelist_cache_rest
-- sale-workflow/sale_order_transmit_method
-- stock-logistics-warehouse/stock_product_qty_by_packaging
-- stock-logistics-workflow/stock_picking_consolidation_priority
-- stock-logistics-workflow/stock_picking_group_by_partner_by_carrier
-
-### claimed-by-others → blocked-by-deps (1)
-- sale-workflow/sale_order_lot_generator
-
-### claimed-by-others → todo (2)
-- payroll/payroll
-- sale-workflow/sale_order_lot_selection
-
-### merged-in-fork → ready-for-upstream-pr (5)
-- partner-contact/partner_title_contacts
-- project/project_task_product_stock
-- project/project_task_pull_request_state
-- purchase-workflow/purchase_triple_discount
-- sale-workflow/sale_product_set
-
-### new candidates (12)
-- account-reconcile/account_move_line_reconcile_manual
-- manufacture/mrp_bom_line_net_qty
-- manufacture/mrp_production_unique_lot
-- multi-company/product_category_company
-- multi-company/purchase_sale_lot_intercompany
-- purchase-workflow/purchase_order_line_import_sheet_file
-- sale-workflow/sale_partner_sale_contact
-- sale-workflow/sale_partner_sale_contact_on_project
-- sale-workflow/sale_partner_sale_contact_website_sale
-- server-tools/base_sequence_template
-- stock-logistics-workflow/stock_readonly
-- timesheet/hr_timesheet_sheet_activity
-
-### removed from report (16)
-- account-invoicing/account_invoice_triple_discount
-- edi/account_invoice_import_facturx
-- edi/account_invoice_import_ubl
-- partner-contact/partner_category_security
-- partner-contact/partner_title
-- product-attribute/product_set
-- project/project_task_default_stage
-- project/project_task_product
-- project/project_task_pull_request
-- purchase-workflow/purchase_order_internal_note
-- server-tools/auto_backup
-- server-tools/base_cron_exclusion
-- stock-logistics-warehouse/stock_warehouse_calendar
-- stock-logistics-workflow/stock_picking_sale_order_link
-- stock-logistics-workflow/stock_restrict_lot
-- web/web_filter_header_button
-
-### todo → blocked-by-deps (4)
-- payroll/payroll_contract_advantages
-- payroll/payroll_rule_time_parameter
-- project/project_task_stock_product_set
-- stock-logistics-warehouse/stock_lot_catalog_sale
-
-### todo → claimed-by-others (18)
-- bank-payment/account_banking_mandate_sale
-- bank-payment/account_banking_sepa_direct_debit
-- bank-payment/account_payment_order_grouped_output
-- connector/connector
-- geospatial/base_geoengine
-- hr/hr_personal_equipment_request
-- multi-company/account_multicompany_easy_creation
-- multi-company/product_multi_company
-- multi-company/product_tax_multicompany_default
-- pos/pos_config_logo
-- product-attribute/product_attribute_value_menu
-- product-attribute/product_packaging_calculator
-- stock-logistics-barcode/product_multi_barcode
-- stock-logistics-warehouse/stock_location_lockdown
-- stock-logistics-warehouse/stock_move_quantity_product_uom
-- stock-logistics-warehouse/stock_warehouse_out_pull
-- timesheet/hr_employee_cost_history
-- timesheet/hr_timesheet_amount_security
-
+_none_
 ## Per repo
 
 | repo | todo | skipped-relevancy | claimed-by-others | blocked-by-deps | pr-to-fork | merged-in-fork | ready-for-upstream-pr |
@@ -180,3 +71,7 @@ Generated 2026-11-06 13:23 UTC · 47 repos · 2243 modules tracked
 
 ## Notes from this run
 
+- 2026-11-06: sync workflow re-run (last scan was 2026-10-30), scan fresh.
+- Relevancy: 12 new modules judged, all `relevant` (account_move_line_reconcile_manual, mrp_bom_line_net_qty, product_category_company, purchase_sale_lot_intercompany, payroll, purchase_order_line_import_sheet_file, sale_partner_sale_contact (+2 glue modules), base_sequence_template, stock_readonly, hr_timesheet_sheet_activity).
+- Migration: NONE started. This session has no `add_repo` tool, so the BADEP forks are not in its authorized set; the first push (BADEP/payroll) was refused 403 by the git proxy. Per the rules, all 25 candidates were skipped; no PRs, no review, no repair, no merges.
+- Needs a human: attach every BADEP fork with push access to the scheduled task's sources (see PROCESS.md "Session prerequisites"), then re-run.
