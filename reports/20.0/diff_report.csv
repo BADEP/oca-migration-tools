@@ -315,7 +315,7 @@ product-attribute,uom_alias,0,0,0,0,0,0,formatting,False
 project,project_administrator_restricted_visibility,-8,-14,0,-12,-6,0,review,True
 project,project_forecast_line,-5,-5,0,10,0,1,review,True
 project,project_group,-1,-21,0,2,0,0,review,True
-project,project_hr,-3,0,0,2,-14,-3,review,True
+project,project_hr,-10,0,0,-18,-14,-3,review,True
 project,project_hr_expense_analytic,0,0,0,0,0,0,formatting,False
 project,project_kanban_form_direct_access,0,2,0,0,10,0,review,True
 project,project_key,-38,-56,-35,-15,-22,-3,review,True
@@ -442,7 +442,7 @@ sale-workflow,sale_elaboration,-1,3,0,2,-2,-3,review,True
 sale-workflow,sale_elaboration_brand,0,0,0,0,11,-3,review,True
 sale-workflow,sale_exception,-7,-9,0,0,45,-3,review,True
 sale-workflow,sale_exception_line_tooltip,0,0,0,0,0,0,formatting,False
-sale-workflow,sale_fixed_discount,0,7,0,14,0,0,review,True
+sale-workflow,sale_fixed_discount,0,2,0,14,0,0,review,True
 sale-workflow,sale_force_invoiced,0,0,0,0,0,0,formatting,False
 sale-workflow,sale_force_invoiced_quantity,0,1,0,0,-25,-3,review,True
 sale-workflow,sale_fully_invoiced,0,1,0,0,-3,-3,review,True
@@ -458,7 +458,7 @@ sale-workflow,sale_order_approval_block,0,0,0,0,0,0,formatting,False
 sale-workflow,sale_order_archive,0,0,0,0,0,0,formatting,False
 sale-workflow,sale_order_carrier_auto_assign,-7,2,0,-31,-14,-3,review,True
 sale-workflow,sale_order_disable_user_autosubscribe,0,0,0,0,-20,-3,review,True
-sale-workflow,sale_order_general_discount,0,1,-328,1,1,-3,review,True
+sale-workflow,sale_order_general_discount,2,1,-328,-53,1,-3,review,True
 sale-workflow,sale_order_invoice_amount,0,0,0,2,10,0,formatting,True
 sale-workflow,sale_order_line_date,0,0,0,0,-3,0,formatting,False
 sale-workflow,sale_order_line_description,-1,0,0,16,0,-26,review,True
@@ -481,7 +481,6 @@ sale-workflow,sale_order_requested_delivery,2,0,0,4,0,0,review,True
 sale-workflow,sale_order_revision,2,0,0,0,0,0,review,True
 sale-workflow,sale_order_secondary_unit,2,2,0,4,-6,-3,review,True
 sale-workflow,sale_order_show_full_address,0,0,0,0,0,0,formatting,False
-sale-workflow,sale_order_split_strategy,0,0,0,2,0,0,formatting,False
 sale-workflow,sale_order_tag,-1,-12,0,0,-3,-2,review,True
 sale-workflow,sale_order_warehouse_header,-2,0,0,0,0,0,review,True
 sale-workflow,sale_partner_address_restrict,0,0,-88,2,0,0,formatting,False
@@ -596,7 +595,7 @@ stock-logistics-workflow,sale_order_global_stock_route,0,0,0,0,-6,-3,review,True
 stock-logistics-workflow,scrap_reason_code,-19,-16,0,9,-14,-3,review,True
 stock-logistics-workflow,stock_account_product_run_fifo_hook,0,0,0,0,0,0,formatting,False
 stock-logistics-workflow,stock_dangerous_goods,0,0,0,0,-2,-3,review,True
-stock-logistics-workflow,stock_landed_costs_purchase_auto,0,0,0,3,-5,-3,review,True
+stock-logistics-workflow,stock_landed_costs_purchase_auto,-26,0,-117,-14,-5,-3,review,True
 stock-logistics-workflow,stock_lot_scrap,11,0,0,2,-1,-3,review,True
 stock-logistics-workflow,stock_move_line_expiration_date_required,-5,0,0,-47,-26,-3,review,True
 stock-logistics-workflow,stock_no_negative,0,0,0,2,-4,-3,review,True
