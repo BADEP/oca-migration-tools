@@ -3,7 +3,7 @@ multi-company,account_invoice_inter_company,19.0,no,,,carlos-lopez-tecnativa,htt
 multi-company,account_multicompany_easy_creation,18.0,no,relevant,Quick company setup wizard not available in core,cristina-hidalgo-tecnativa,https://github.com/OCA/multi-company/pull/1086,10,1264,migrate; 1 PR(s) to port,account,ok,,,,,,,yes,claimed-by-others,2026-11-13,
 multi-company,base_multi_company,19.0,no,,,carlos-lopez-tecnativa,https://github.com/OCA/multi-company/pull/1078,24,3553,migrate; 1 PR(s) to port,,ok,,,,,,,yes,claimed-by-others,2026-11-13,
 multi-company,calendar_event_multi_company,18.0,no,relevant,Adds company restriction on calendar events missing from core,,,,611,migrate,calendar,ok,,,,,,,yes,todo,2026-11-13,
-multi-company,calendar_event_type_multi_company,19.0,no,,,,,,736,,calendar,ok,,20.0-mig-calendar_event_type_multi_company,,,,,yes,ready-for-upstream-pr,2026-11-13,
+multi-company,calendar_event_type_multi_company,19.0,no,,,,,,736,migrate,calendar,ok,,20.0-mig-calendar_event_type_multi_company,,,,,yes,ready-for-upstream-pr,2026-11-13,
 multi-company,crm_lost_reason_multi_company,18.0,no,relevant,Adds company restriction on lost reasons missing from core,,,,553,,crm,ok,,,,,,,yes,todo,2026-11-13,
 multi-company,crm_stage_multi_company,18.0,no,relevant,Adds company restriction on CRM stages missing from core,,,,569,,crm,ok,,,,,,,yes,todo,2026-11-13,
 multi-company,crm_tag_multi_company,18.0,no,relevant,Adds company restriction on CRM tags missing from core,,,,629,,crm,ok,,,,,,,yes,todo,2026-11-13,

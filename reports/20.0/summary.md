@@ -1,22 +1,28 @@
 # OCA → 20.0 migration status
 
-Generated 2026-11-13 12:55 UTC · 47 repos · 2226 modules tracked
+Generated 2026-11-13 17:58 UTC · 47 repos · 2224 modules tracked
 
 ## Totals
 
 | status | modules |
 |---|---:|
-| todo | 1020 |
+| todo | 1019 |
 | skipped-relevancy | 31 |
 | claimed-by-others | 137 |
 | blocked-by-deps | 376 |
 | pr-to-fork | 25 |
 | merged-in-fork | 110 |
-| ready-for-upstream-pr | 527 |
+| ready-for-upstream-pr | 526 |
 
 ## Changes since last run
 
-_none_
+### removed from report (2)
+- crm/crm_stage_probability
+- e-commerce/website_sale_tax_toggle
+
+### todo → claimed-by-others (1)
+- knowledge/document_page_approval
+
 ## Per repo
 
 | repo | todo | skipped-relevancy | claimed-by-others | blocked-by-deps | pr-to-fork | merged-in-fork | ready-for-upstream-pr |
@@ -32,16 +38,16 @@ _none_
 | [connector](connector.csv) | 3 | 0 | 1 | 0 | 0 | 1 | 1 |
 | [connector-telephony](connector-telephony.csv) | 3 | 0 | 0 | 1 | 0 | 0 | 0 |
 | [contract](contract.csv) | 16 | 0 | 3 | 10 | 0 | 7 | 2 |
-| [crm](crm.csv) | 13 | 0 | 1 | 2 | 0 | 5 | 12 |
+| [crm](crm.csv) | 13 | 0 | 1 | 2 | 0 | 5 | 11 |
 | [delivery-carrier](delivery-carrier.csv) | 34 | 1 | 1 | 21 | 1 | 3 | 9 |
 | [dms](dms.csv) | 4 | 0 | 2 | 2 | 0 | 0 | 0 |
-| [e-commerce](e-commerce.csv) | 9 | 3 | 2 | 11 | 0 | 10 | 31 |
+| [e-commerce](e-commerce.csv) | 9 | 3 | 1 | 11 | 0 | 10 | 31 |
 | [edi](edi.csv) | 7 | 1 | 0 | 26 | 1 | 2 | 2 |
 | [field-service](field-service.csv) | 24 | 1 | 1 | 26 | 0 | 0 | 1 |
 | [geospatial](geospatial.csv) | 3 | 0 | 3 | 6 | 0 | 0 | 1 |
 | [helpdesk](helpdesk.csv) | 25 | 0 | 1 | 13 | 0 | 0 | 0 |
 | [hr](hr.csv) | 14 | 0 | 5 | 9 | 0 | 1 | 9 |
-| [knowledge](knowledge.csv) | 10 | 0 | 3 | 1 | 1 | 0 | 0 |
+| [knowledge](knowledge.csv) | 9 | 0 | 4 | 1 | 1 | 0 | 0 |
 | [management-system](management-system.csv) | 20 | 0 | 15 | 3 | 0 | 0 | 1 |
 | [manufacture](manufacture.csv) | 45 | 0 | 3 | 12 | 0 | 0 | 15 |
 | [mis-builder](mis-builder.csv) | 0 | 0 | 0 | 0 | 0 | 2 | 1 |
@@ -71,9 +77,3 @@ _none_
 
 ## Notes from this run
 
-- 2026-11-13: sync workflow re-run manually (scan was 7 days old); finished OK, scan is dated today.
-- Relevancy: 9 new modules judged, all `relevant` (checked against manifests only; 20.0 core source not inspected).
-- barcodes_generator_package (stock-logistics-barcode, from 17.0): product.packaging was removed in core 19.0, so the port will need a rewrite, expect a conflict.
-- Migration: 0 modules migrated. The session could not attach the BADEP forks with push access (no add_repo tool; GitHub API answers 403 for BADEP/<repo>; GH_TOKEN invalid). No CI, review or repair steps ran.
-- Needs a human: attach the forks to the scheduled task's GitHub access (see PROCESS.md prerequisites); top of the queue is payroll/payroll, stock-logistics-workflow/purchase_stock_picking_invoice_link, knowledge/document_page_approval.
-- Not done: the OCA migration wiki and AI policy pages were not re-read this run.

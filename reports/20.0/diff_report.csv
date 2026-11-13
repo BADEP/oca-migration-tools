@@ -106,7 +106,6 @@ crm,crm_partner_assign,0,-8,0,2,0,0,review,True
 crm,crm_phonecall,-4,-1,-1,0,5,-3,review,True
 crm,crm_phonecall_summary_predefined,1,0,-1,0,0,-3,review,True
 crm,crm_project_create,0,1,0,0,0,-3,review,True
-crm,crm_stage_probability,2,0,0,0,0,0,review,True
 crm,crm_won_restrict_per_stage,0,0,0,2,-9,-3,review,True
 crm,marketing_crm_partner,0,0,-1,2,0,0,formatting,False
 crm,srm,-18,-27,0,0,-10,-3,review,True
