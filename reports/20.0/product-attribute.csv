@@ -35,7 +35,7 @@ product-attribute,product_drained_weight,19.0,no,,,kalpeshgajera-uncannycs,https
 product-attribute,product_eprel,18.0,no,relevant,EPREL energy label integration,,,,450,migrate,product,ok,,,,,,,yes,todo,2026-11-13,
 product-attribute,product_form_pricelist,18.0,no,relevant,Edit pricelist items from product form,,,,407,migrate,sale,ok,,,,,,,yes,todo,2026-11-13,
 product-attribute,product_get_price_helper,18.0,no,relevant,Technical price computation helper,,,,415,migrate,account product,ok,,,,,,,yes,todo,2026-11-13,
-product-attribute,product_import_autocomplete_attribute,18.0,no,,,,,,63,migrate,product,ok,,,,,,,yes,todo,2026-11-13,
+product-attribute,product_import_autocomplete_attribute,18.0,no,relevant,Syncs attribute lines from imported variants to template; core is template-to-variant only,,,,63,migrate,product,ok,,,,,,,yes,todo,2026-11-13,
 product-attribute,product_ingredient,18.0,no,relevant,Ingredient data on products not in core,,,,332,migrate,product stock,ok,,,,,,,yes,todo,2026-11-13,
 product-attribute,product_list_price_from_pricelist,18.0,no,relevant,Computes sales price from a pricelist,,,,346,migrate,sale,ok,,,,,,,yes,todo,2026-11-13,
 product-attribute,product_logistics_uom,19.0,no,,,arantxa-s73,https://github.com/OCA/product-attribute/pull/2468,18,3535,migrate; 1 PR(s) to port,product,ok,,20.0-mig-product_logistics_uom,,,,,yes,ready-for-upstream-pr,2026-11-13,

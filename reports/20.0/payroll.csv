@@ -4,5 +4,5 @@ payroll,payroll,19.0,no,relevant,Community payroll; core payroll is Enterprise o
 payroll,payroll_account,18.0,no,,,BhaveshHeliconia,https://github.com/OCA/payroll/pull/319,32,8114,,payroll account,blocked,payroll:missing,,,,,,yes,claimed-by-others,2026-11-13,
 payroll,payroll_contract_advantages,18.0,no,relevant,"extends the OCA payroll engine, Community has no native payroll",,,,1265,,hr_contract payroll,blocked,hr_contract:unknown payroll:missing,,,,,,yes,blocked-by-deps,2026-11-13,
 payroll,payroll_hr_public_holidays,18.0,no,relevant,"glue between OCA payroll and public holidays, no core equivalent",,,,549,,payroll hr_holidays calendar_public_holiday,blocked,payroll:missing calendar_public_holiday:unknown,,,,,,yes,blocked-by-deps,2026-11-13,
-payroll,payroll_rule_tag,18.0,no,,,,,,114,,payroll,blocked,payroll:missing,,,,,,yes,blocked-by-deps,2026-11-13,
+payroll,payroll_rule_tag,18.0,no,relevant,Tags on salary rules in OCA payroll; no Community payroll,,,,114,,payroll,blocked,payroll:missing,,,,,,yes,blocked-by-deps,2026-11-13,
 payroll,payroll_rule_time_parameter,18.0,no,relevant,"time-dependent salary rule parameters for OCA payroll, not in core",,,,203,,base_time_parameter payroll,blocked,base_time_parameter:missing payroll:missing,,,,,,yes,blocked-by-deps,2026-11-13,

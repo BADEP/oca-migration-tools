@@ -38,7 +38,7 @@ manufacture,mrp_production_generator_by_date_interval,19.0,no,,,sudhir-erpharbor
 manufacture,mrp_production_location_picking_type,18.0,no,relevant,"production location per operation type, not native",,,,1244,,mrp,ok,,,,,,,yes,todo,2026-11-13,
 manufacture,mrp_production_note,19.0,no,,,ristecona,https://github.com/OCA/manufacture/pull/1897,24,1498,,mrp,ok,,20.0-mig-mrp_production_note,,,,,yes,ready-for-upstream-pr,2026-11-13,
 manufacture,mrp_production_picking_type_from_route,18.0,no,relevant,operation type from product route on manual MOs,,,,334,,mrp,ok,,,,,,,yes,todo,2026-11-13,
-manufacture,mrp_production_push_mto_qty,19.0,no,,,,,,69,,mrp,ok,,,,,,,yes,todo,2026-11-13,
+manufacture,mrp_production_push_mto_qty,19.0,no,relevant,Pushes over/under-produced MO qty to downstream MTO moves; not in core,,,,69,,mrp,ok,,,,,,,yes,todo,2026-11-13,
 manufacture,mrp_production_putaway_strategy,18.0,no,relevant,applies putaway rules to finished products of MOs,,,,1216,,mrp,ok,,,,,,,yes,todo,2026-11-13,
 manufacture,mrp_production_quant_manual_assign,17.0,no,relevant,manual quant selection for MO components via OCA module,wpichler,https://github.com/OCA/manufacture/pull/1909,16,484,,mrp stock_quant_manual_assign,blocked,stock_quant_manual_assign:missing,,,,,,yes,claimed-by-others,2026-11-13,
 manufacture,mrp_production_serial_matrix,17.0,no,relevant,"serial matrix for multi-unit serialized production, not native",,,,888,,mrp web_widget_x2many_2d_matrix,needs-pr-merge,web_widget_x2many_2d_matrix:pr=OCA/web#3738,,,,,,yes,todo,2026-11-13,

@@ -15,7 +15,7 @@ account-analytic,account_analytic_required,19.0,no,,,kh-badep,https://github.com
 account-analytic,account_analytic_sequence,19.0,no,,,kh-badep,https://github.com/OCA/account-analytic/pull/979,28,3718,,analytic,ok,,20.0-mig-account_analytic_sequence,,,,,yes,ready-for-upstream-pr,2026-11-13,
 account-analytic,account_analytic_spread_by_tag,18.0,no,relevant,Tag-based spreading of entries over analytic accounts is not native,,,,552,migrate,account_analytic_tag,needs-pr-merge,account_analytic_tag:pr=OCA/account-analytic#980,,,,,,yes,todo,2026-11-13,
 account-analytic,account_analytic_tag,19.0,no,,,kh-badep,https://github.com/OCA/account-analytic/pull/980,28,10274,migrate; 1 PR(s) to port,account analytic,ok,,20.0-mig-account_analytic_tag,,,,,yes,ready-for-upstream-pr,2026-11-13,
-account-analytic,account_move_analytic,18.0,no,,,,,,124,migrate,account base_view_inheritance_extension,ok,,,,,,,yes,todo,2026-11-13,
+account-analytic,account_move_analytic,18.0,no,relevant,Header-level analytic distribution on invoices propagating to lines; core only per line,,,,124,migrate,account base_view_inheritance_extension,ok,,,,,,,yes,todo,2026-11-13,
 account-analytic,account_move_analytic_link,18.0,no,relevant,Navigation from journal items to generated analytic items is a UI improvement,,,,232,migrate,account,ok,,,,,,,yes,todo,2026-11-13,
 account-analytic,account_move_update_analytic,19.0,no,,,kh-badep,https://github.com/OCA/account-analytic/pull/981,28,3968,migrate; 1 PR(s) to port,account,ok,,20.0-mig-account_move_update_analytic,,,,,yes,ready-for-upstream-pr,2026-11-13,
 account-analytic,analytic_base_department,18.0,no,relevant,"Links departments to analytic accounts and items, not in core",,,,734,migrate,account hr,ok,,,,,,,yes,todo,2026-11-13,

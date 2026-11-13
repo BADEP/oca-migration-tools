@@ -8,7 +8,7 @@ timesheet,hr_timesheet_date_order_desc,18.0,no,relevant,UX tweak to native times
 timesheet,hr_timesheet_day_week,19.0,no,,,,,,855,migrate,hr_timesheet,ok,,20.0-mig-hr_timesheet_day_week,,,,,yes,ready-for-upstream-pr,2026-11-13,
 timesheet,hr_timesheet_editable_top,18.0,no,relevant,"UX tweak, core timesheet lists still add lines at bottom",,,,539,,hr_timesheet,ok,,,,,,,yes,todo,2026-11-13,
 timesheet,hr_timesheet_employee_analytic_tag,19.0,no,,,,,,1010,,hr_timesheet account_analytic_tag,needs-pr-merge,account_analytic_tag:pr=OCA/account-analytic#980,20.0-mig-hr_timesheet_employee_analytic_tag,,,,,yes,merged-in-fork,2026-11-13,
-timesheet,hr_timesheet_manager_approver,18.0,no,,,,,,68,,hr_timesheet,ok,,,,,,,yes,todo,2026-11-13,
+timesheet,hr_timesheet_manager_approver,18.0,no,relevant,Widens approver record rule to manager hierarchy; not in core,,,,68,,hr_timesheet,ok,,,,,,,yes,todo,2026-11-13,
 timesheet,hr_timesheet_name_customer,18.0,no,relevant,Separate customer-facing description and report not in core,,,,805,,hr_timesheet,ok,,,,,,,yes,todo,2026-11-13,
 timesheet,hr_timesheet_portal,19.0,no,,,,,,645,,hr_timesheet portal website,ok,,20.0-mig-hr_timesheet_portal,,,,,yes,ready-for-upstream-pr,2026-11-13,
 timesheet,hr_timesheet_report,18.0,no,relevant,Configurable PDF and XLSX timesheet report beyond core reporting,,,,769,,hr_timesheet report_xlsx,ok,,,,,,,yes,todo,2026-11-13,
