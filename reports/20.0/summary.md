@@ -218,3 +218,7 @@ Generated 2026-11-20 12:46 UTC · 47 repos · 2218 modules tracked
 
 ## Notes from this run
 
+- 2026-11-20: run blocked. The scheduled session only has push access to BADEP/oca-migration-tools (plus BADEP/addons); the 47 BADEP forks and OCA/* repos answer 403, and scheduled runs cannot add repositories.
+- Sync & scan workflow (triggered because last_scan.json was stale) succeeded; scan data is current.
+- Relevancy: 16 modules still lack a verdict (contract, e-commerce, field-service, hr, partner-contact, purchase-workflow, sale-workflow, server-ux, stock-logistics-barcode, stock-logistics-workflow). Manifests were unreadable, so no verdict was recorded.
+- Migrated 0, repaired 0, merged 0. Fix: create a new chat on claude.ai, add every BADEP fork (push) the task needs, and recreate the scheduled task from there.
