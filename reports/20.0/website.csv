@@ -1,6 +1,6 @@
 repo,module,source_branch,in_upstream_target,relevancy,relevancy_rationale,claimed_by,upstream_open_pr,claim_age_days,downloads,oca_port,deps,deps_status,deps_blocking,our_mig_branch,our_fork_pr,ci,diff_lines,diff_review,self_maintained,status,last_run,notes
-website,portal_invitation_by_website,19.0,no,relevant,Per-website portal invitations not provided by core multi-website,,,,896,,portal website,ok,,,,,,,yes,todo,2026-11-20,
-website,website_altcha,18.0,no,relevant,Self-hosted captcha alternative not offered in core,,,,1239,,website,ok,,,,,,,yes,todo,2026-11-20,
+website,portal_invitation_by_website,19.0,no,relevant,Per-website portal invitations not provided by core multi-website,,,,896,migrate,portal website,ok,,,,,,,yes,todo,2026-11-20,
+website,website_altcha,18.0,no,relevant,Self-hosted captcha alternative not offered in core,,,,1239,migrate,website,ok,,,,,,,yes,todo,2026-11-20,
 website,website_analytics_matomo,18.0,no,relevant,Core supports other analytics providers but not Matomo,,,,1172,,website,ok,,,,,,,yes,todo,2026-11-20,
 website,website_blog_scheduled_publication,18.0,no,relevant,"Adds scheduling wizard, cron publication and follower notifications beyond core",,,,441,,website_blog,ok,,,,,,,yes,todo,2026-11-20,
 website,website_breadcrumb,18.0,no,relevant,Generic menu-based breadcrumbs on any page are not native,,,,424,,website,ok,,,,,,,yes,todo,2026-11-20,

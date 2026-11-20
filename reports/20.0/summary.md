@@ -1,6 +1,6 @@
 # OCA → 20.0 migration status
 
-Generated 2026-11-20 12:46 UTC · 47 repos · 2218 modules tracked
+Generated 2026-11-20 18:30 UTC · 47 repos · 2217 modules tracked
 
 ## Totals
 
@@ -12,157 +12,12 @@ Generated 2026-11-20 12:46 UTC · 47 repos · 2218 modules tracked
 | blocked-by-deps | 336 |
 | pr-to-fork | 24 |
 | merged-in-fork | 106 |
-| ready-for-upstream-pr | 514 |
+| ready-for-upstream-pr | 513 |
 
 ## Changes since last run
 
-### blocked-by-deps → claimed-by-others (18)
-- bank-payment/account_payment_purchase_stock
-- delivery-carrier/delivery_schenker
-- dms/dms_user_role
-- field-service/fieldservice_agreement
-- field-service/fieldservice_availability
-- field-service/fieldservice_equipment_stock
-- field-service/fieldservice_equipment_warranty
-- field-service/fieldservice_google_map
-- field-service/fieldservice_repair
-- field-service/fieldservice_sale
-- field-service/fieldservice_sale_agreement
-- field-service/fieldservice_sale_agreement_equipment_stock
-- field-service/fieldservice_sale_recurring
-- field-service/fieldservice_sale_stock
-- field-service/fieldservice_sign
-- field-service/fieldservice_timesheet
-- sale-workflow/sale_start_end_dates
-- stock-logistics-workflow/stock_move_valuation_usage
-
-### blocked-by-deps → todo (29)
-- account-invoicing/sale_stock_picking_invoicing
-- bank-statement-import/account_statement_import_online_gocardless
-- bank-statement-import/account_statement_import_online_paypal
-- bank-statement-import/account_statement_import_online_plaid
-- bank-statement-import/account_statement_import_online_ponto
-- bank-statement-import/account_statement_import_online_qonto
-- bank-statement-import/account_statement_import_online_stripe
-- delivery-carrier/delivery_correos_express
-- delivery-carrier/delivery_state_manual
-- field-service/fieldservice_account_analytic
-- field-service/fieldservice_account_payment
-- field-service/fieldservice_agreement_repair
-- field-service/fieldservice_equipment_stock_return
-- field-service/fieldservice_fleet
-- field-service/fieldservice_sale_recurring_agreement
-- field-service/fieldservice_sale_stock_route
-- field-service/fieldservice_subcontracting
-- helpdesk/helpdesk_mgmt_fieldservice_equipment_warranty
-- helpdesk/helpdesk_mgmt_fieldservice_project
-- helpdesk/helpdesk_mgmt_project_domain
-- helpdesk/helpdesk_mgmt_sale_project
-- knowledge/document_page_access_group_user_role
-- multi-company/purchase_sale_note_intercompany
-- multi-company/purchase_sale_stock_inter_company
-- purchase-workflow/purchase_force_invoiced_quantity
-- sale-workflow/sale_probability_amount
-- server-backend/base_user_role_activity
-- server-backend/base_user_role_profile
-- stock-logistics-workflow/stock_picking_return_lot
-
-### merged-in-fork → ready-for-upstream-pr (3)
-- account-financial-reporting/partner_statement
-- account-financial-tools/account_asset_management
-- crm/crm_industry
-
-### new candidates (18)
-- contract/contract_invoice_force_date
-- contract/contract_invoice_force_date_queue
-- e-commerce/website_sale_partner_sale_contact
-- e-commerce/website_sale_product_catalog_public_category
-- field-service/fieldservice_appointment_confirmation
-- hr/hr_user_role_activity
-- manufacture/mrp_subcontracting_resupply_status
-- partner-contact/partner_address_format_domestic
-- product-attribute/product_supplierinfo_multi_code
-- purchase-workflow/purchase_order_accrual_accounting_date
-- purchase-workflow/purchase_work_acceptance_tier_validation
-- sale-workflow/sale_delivery_address_picking_update
-- sale-workflow/sale_order_add_consumed_components
-- sale-workflow/sale_order_line_smartbutton
-- server-ux/base_line_numbering
-- stock-logistics-barcode/stock_barcodes_picking_batch
-- stock-logistics-workflow/stock_move_position
-- stock-logistics-workflow/stock_picking_batch_move_position
-
-### removed from report (24)
-- account-analytic/account_analytic_line_commercial_partner
-- account-financial-reporting/account_tax_balance
-- account-invoicing/portal_account_personal_data_only
-- delivery-carrier/delivery_package_number
-- delivery-carrier/delivery_state
-- dms/dms_field
-- dms/hr_dms_field
-- manufacture/mrp_production_unique_lot
-- manufacture/mrp_subcontracting_purchase_link
-- multi-company/base_multi_company
-- partner-contact/partner_employee_quantity
-- partner-contact/partner_industry_secondary
-- project/project_task_pull_request_state
-- purchase-workflow/purchase_order_line_menu
-- purchase-workflow/purchase_order_line_price_unit_digits
-- reporting-engine/report_xlsx_helper
-- sale-workflow/portal_sale_personal_data_only
-- sale-workflow/sale_order_archive
-- sale-workflow/sale_order_line_menu
-- server-tools/upgrade_analysis
-- server-ux/developer_menu
-- server-ux/server_action_mass_edit
-- stock-logistics-workflow/stock_account_product_run_fifo_hook
-- timesheet/hr_timesheet_amount_security
-
-### todo → claimed-by-others (44)
-- account-analytic/analytic_hr_department_restriction
-- account-invoicing/account_invoice_subscription_per_contact
-- bank-payment/account_payment_purchase
-- bank-statement-import/account_statement_import_camt54
-- bank-statement-import/account_statement_import_online
-- dms/dms_auto_classification
-- field-service/fieldservice_account
-- field-service/fieldservice_activity
-- field-service/fieldservice_calendar
-- field-service/fieldservice_crm
-- field-service/fieldservice_expense
-- field-service/fieldservice_kanban_info
-- field-service/fieldservice_portal
-- field-service/fieldservice_project
-- field-service/fieldservice_purchase
-- field-service/fieldservice_recurring
-- field-service/fieldservice_route
-- field-service/fieldservice_size
-- field-service/fieldservice_skill
-- field-service/fieldservice_stage_server_action
-- field-service/fieldservice_stage_validation
-- field-service/fieldservice_stock
-- field-service/fieldservice_timeline
-- field-service/fieldservice_vehicle
-- helpdesk/helpdesk_mgmt_activity
-- helpdesk/helpdesk_mgmt_crm
-- helpdesk/helpdesk_mgmt_merge
-- helpdesk/helpdesk_mgmt_project
-- helpdesk/helpdesk_mgmt_rating
-- helpdesk/helpdesk_mgmt_sale
-- hr/hr_employee_bank_restrict
-- knowledge/document_page_access_group
-- knowledge/document_page_partner
-- knowledge/document_page_product
-- multi-company/crm_lost_reason_multi_company
-- multi-company/crm_stage_multi_company
-- multi-company/purchase_sale_inter_company
-- partner-contact/partner_affiliate
-- queue/queue_job_subscribe
-- sale-workflow/sale_invoice_policy
-- sale-workflow/sale_mrp_bom
-- web/web_save_discard_button
-- web/web_toggle_chatter
-- web/web_widget_image_download
+### removed from report (1)
+- product-attribute/product_category_code
 
 ## Per repo
 
@@ -196,7 +51,7 @@ Generated 2026-11-20 12:46 UTC · 47 repos · 2218 modules tracked
 | [partner-contact](partner-contact.csv) | 43 | 2 | 4 | 4 | 1 | 10 | 47 |
 | [payroll](payroll.csv) | 1 | 0 | 1 | 5 | 0 | 0 | 0 |
 | [pos](pos.csv) | 45 | 2 | 2 | 11 | 1 | 1 | 2 |
-| [product-attribute](product-attribute.csv) | 63 | 1 | 6 | 14 | 0 | 4 | 34 |
+| [product-attribute](product-attribute.csv) | 63 | 1 | 6 | 14 | 0 | 4 | 33 |
 | [project](project.csv) | 29 | 1 | 2 | 4 | 1 | 1 | 34 |
 | [purchase-workflow](purchase-workflow.csv) | 59 | 2 | 5 | 18 | 0 | 4 | 40 |
 | [queue](queue.csv) | 4 | 0 | 3 | 0 | 0 | 0 | 1 |
@@ -218,7 +73,3 @@ Generated 2026-11-20 12:46 UTC · 47 repos · 2218 modules tracked
 
 ## Notes from this run
 
-- 2026-11-20: run blocked. The scheduled session only has push access to BADEP/oca-migration-tools (plus BADEP/addons); the 47 BADEP forks and OCA/* repos answer 403, and scheduled runs cannot add repositories.
-- Sync & scan workflow (triggered because last_scan.json was stale) succeeded; scan data is current.
-- Relevancy: 16 modules still lack a verdict (contract, e-commerce, field-service, hr, partner-contact, purchase-workflow, sale-workflow, server-ux, stock-logistics-barcode, stock-logistics-workflow). Manifests were unreadable, so no verdict was recorded.
-- Migrated 0, repaired 0, merged 0. Fix: create a new chat on claude.ai, add every BADEP fork (push) the task needs, and recreate the scheduled task from there.

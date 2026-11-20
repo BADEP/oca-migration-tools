@@ -1,8 +1,8 @@
 repo,module,source_branch,in_upstream_target,relevancy,relevancy_rationale,claimed_by,upstream_open_pr,claim_age_days,downloads,oca_port,deps,deps_status,deps_blocking,our_mig_branch,our_fork_pr,ci,diff_lines,diff_review,self_maintained,status,last_run,notes
-server-auth,apikey_scope_editable,17.0,no,relevant,extends native API keys with scope selection at creation,,,,210,migrate,base,ok,,,,,,,yes,todo,2026-11-20,
-server-auth,auth_admin_passkey,19.0,no,,,henriknorlin,https://github.com/OCA/server-auth/pull/1046,33,1628,migrate; 1 PR(s) to port,mail,ok,,,,,,,yes,claimed-by-others,2026-11-20,
-server-auth,auth_admin_passkey_totp_mail_enforce,17.0,no,relevant,glue between admin passkey and core email 2FA enforcement,,,,2921,migrate,auth_admin_passkey auth_totp_mail_enforce,blocked,auth_admin_passkey:pr=OCA/server-auth#1046 auth_totp_mail_enforce:unknown,,,,,,yes,blocked-by-deps,2026-11-20,
-server-auth,auth_api_key,19.0,no,,,cjallais,https://github.com/OCA/server-auth/pull/1071,1,7759,migrate; 1 PR(s) to port,base_setup,ok,,20.0-mig-auth_api_key,,,,,yes,ready-for-upstream-pr,2026-11-20,
+server-auth,apikey_scope_editable,17.0,no,relevant,extends native API keys with scope selection at creation,,,,210,,base,ok,,,,,,,yes,todo,2026-11-20,
+server-auth,auth_admin_passkey,19.0,no,,,henriknorlin,https://github.com/OCA/server-auth/pull/1046,33,1628,,mail,ok,,,,,,,yes,claimed-by-others,2026-11-20,
+server-auth,auth_admin_passkey_totp_mail_enforce,17.0,no,relevant,glue between admin passkey and core email 2FA enforcement,,,,2921,,auth_admin_passkey auth_totp_mail_enforce,blocked,auth_admin_passkey:pr=OCA/server-auth#1046 auth_totp_mail_enforce:unknown,,,,,,yes,blocked-by-deps,2026-11-20,
+server-auth,auth_api_key,19.0,no,,,cjallais,https://github.com/OCA/server-auth/pull/1071,1,7759,,base_setup,ok,,20.0-mig-auth_api_key,,,,,yes,ready-for-upstream-pr,2026-11-20,
 server-auth,auth_api_key_group,19.0,no,,,,,,2158,,auth_api_key,needs-pr-merge,auth_api_key:pr=OCA/server-auth#1071,20.0-mig-auth_api_key_group,,,,,yes,merged-in-fork,2026-11-20,
 server-auth,auth_api_key_server_env,18.0,no,relevant,"configures OCA api keys from server environment files, not in core",,,,1530,,auth_api_key server_environment,blocked,auth_api_key:pr=OCA/server-auth#1071 server_environment:unknown,,,,,,yes,blocked-by-deps,2026-11-20,
 server-auth,auth_jwt,18.0,no,,,DMopen2s,https://github.com/OCA/server-auth/pull/1035,39,2911,,,ok,,,,,,,yes,claimed-by-others,2026-11-20,
