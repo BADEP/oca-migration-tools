@@ -10,7 +10,7 @@ partner-contact,base_partner_merge_user_consolidation,18.0,no,relevant,Extends n
 partner-contact,base_partner_sequence,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/partner-contact/pull/2469,60,5792,,base,ok,,20.0-mig-base_partner_sequence,,,,,yes,ready-for-upstream-pr,2026-11-27,
 partner-contact,crm_partner_company_group,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/partner-contact/pull/2468,60,1524,,base_partner_company_group crm,needs-pr-merge,base_partner_company_group:pr=OCA/partner-contact#2466,20.0-mig-crm_partner_company_group,,,,,yes,merged-in-fork,2026-11-27,
 partner-contact,partner_accreditation,18.0,no,relevant,Accreditation tracking on partners absent from core,,,,765,,contacts,ok,,,,,,,yes,todo,2026-11-27,
-partner-contact,partner_address_format_domestic,19.0,no,,,,,,248,,base,ok,,,,,,,yes,todo,2026-11-27,
+partner-contact,partner_address_format_domestic,19.0,no,relevant,Domestic address format per country not native in Odoo,,,,248,,base,ok,,,,,,,yes,todo,2026-11-27,
 partner-contact,partner_address_split,18.0,no,relevant,Generic street splitting helpers used by other modules,,,,741,,base,ok,,,,,,,yes,todo,2026-11-27,
 partner-contact,partner_address_street3,19.0,no,,,sudhir-erpharbor,https://github.com/OCA/partner-contact/pull/2467,60,12220,,,ok,,20.0-mig-partner_address_street3,,,,,yes,ready-for-upstream-pr,2026-11-27,
 partner-contact,partner_affiliate,19.0,no,relevant,Separates affiliate companies from individual contacts in partner form,enigmista91,https://github.com/OCA/partner-contact/pull/2542,11,2124,,base,ok,,,,,,,yes,claimed-by-others,2026-11-27,

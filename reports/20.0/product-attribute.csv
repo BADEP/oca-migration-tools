@@ -25,7 +25,7 @@ product-attribute,product_class,19.0,no,,,,,,578,,product stock sale,ok,,20.0-mi
 product-attribute,product_code_unique,19.0,no,,,wpichler,https://github.com/OCA/product-attribute/pull/2472,30,2435,,product,ok,,20.0-mig-product_code_unique,,,,,yes,ready-for-upstream-pr,2026-11-27,
 product-attribute,product_company_default,19.0,no,,,,,,680,,product,ok,,20.0-mig-product_company_default,,,,,yes,ready-for-upstream-pr,2026-11-27,
 product-attribute,product_cost_security,19.0,no,,,bobslee,https://github.com/OCA/product-attribute/pull/2493,15,2550,,product,ok,,20.0-mig-product_cost_security,,,,,yes,ready-for-upstream-pr,2026-11-27,
-product-attribute,product_cost_security_purchase,19.0,no,,,,,,,,product_cost_security purchase,needs-pr-merge,product_cost_security:pr=OCA/product-attribute#2493,,,,,,yes,todo,2026-11-27,
+product-attribute,product_cost_security_purchase,19.0,no,relevant,"Glue for OCA product_cost_security with purchase, not native",,,,,,product_cost_security purchase,needs-pr-merge,product_cost_security:pr=OCA/product-attribute#2493,,,,,,yes,todo,2026-11-27,
 product-attribute,product_cost_security_stock_account,18.0,no,relevant,Glue module for cost security and valuation,,,,372,,product_cost_security stock_account,needs-pr-merge,product_cost_security:pr=OCA/product-attribute#2493,,,,,,yes,todo,2026-11-27,
 product-attribute,product_customerinfo,19.0,no,,,ced-adhoc,https://github.com/OCA/product-attribute/pull/2458,37,1569,,product,ok,,20.0-mig-product_customerinfo,,,,,yes,ready-for-upstream-pr,2026-11-27,
 product-attribute,product_dimension,19.0,no,,,kalpeshgajera-uncannycs,https://github.com/OCA/product-attribute/pull/2447,43,6546,,product,ok,,20.0-mig-product_dimension,,,,,yes,ready-for-upstream-pr,2026-11-27,

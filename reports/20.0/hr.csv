@@ -36,5 +36,5 @@ hr,hr_personal_equipment_request_tier_validation,17.0,no,relevant,glue adding ti
 hr,hr_personal_equipment_stock,18.0,no,relevant,glue between equipment requests and stock,,,,476,,hr_personal_equipment_request stock,needs-pr-merge,hr_personal_equipment_request:pr=OCA/hr#1658,,,,,,yes,todo,2026-11-27,
 hr,hr_professional_category,18.0,no,relevant,professional categories on contracts are not in core,,,,820,,hr_contract,blocked,hr_contract:unknown,,,,,,yes,blocked-by-deps,2026-11-27,
 hr,hr_study,17.0,no,relevant,structured studies replace the core free-text field,,,,183,,hr,ok,,,,,,,yes,todo,2026-11-27,
-hr,hr_user_role_activity,19.0,no,,,,,,373,,base_user_role_activity hr,blocked,base_user_role_activity:missing base_user_role:pr=OCA/server-backend#506,,,,,,yes,blocked-by-deps,2026-11-27,
+hr,hr_user_role_activity,19.0,no,relevant,"Glue between OCA base_user_role_activity and hr, not native",,,,373,,base_user_role_activity hr,blocked,base_user_role_activity:missing base_user_role:pr=OCA/server-backend#506,,,,,,yes,blocked-by-deps,2026-11-27,
 hr,hr_work_entry_profile,18.0,no,relevant,"adds work entry access from user profile, extends core",,,,217,,hr_work_entry,ok,,,,,,,yes,todo,2026-11-27,
