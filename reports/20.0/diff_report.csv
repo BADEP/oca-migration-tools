@@ -525,7 +525,7 @@ server-ux,base_optional_quick_create,-1,0,0,0,7,-3,review,True
 server-ux,base_revision,-1,0,0,0,0,0,review,True
 server-ux,base_search_custom_field_filter,-30,0,0,-76,-16,-3,review,True
 server-ux,base_substate,-3,0,0,1,0,0,review,True
-server-ux,base_technical_features,1,0,0,0,-22,0,review,True
+server-ux,base_technical_features,-4,0,0,0,-22,-44,review,True
 server-ux,base_tier_validation,-82,-7,-941,0,-1,0,review,True
 server-ux,date_range_account,0,3,-34,0,-8,-3,review,True
 server-ux,mail_message_destiny_link_template,0,-1,0,0,5,-3,review,True
@@ -617,7 +617,6 @@ web,web_search_deactivate_autosearch,0,0,0,0,0,0,formatting,False
 web,web_search_with_and,0,0,0,0,0,0,formatting,False
 web,web_theme_classic,0,2,55,0,0,0,review,True
 web,web_tree_dynamic_colored_field,0,0,0,0,-60,-3,review,True
-web,web_tree_many2one_clickable,-2,1,0,0,2,1,review,True
 web,web_widget_domain_editor_dialog,0,0,0,0,2,-3,review,True
 web,web_widget_dropdown_dynamic,0,0,0,0,-10,-3,review,True
 web,web_widget_one2many_tree_line_duplicate,0,1,0,0,-1,0,review,True
