@@ -1,6 +1,6 @@
 # OCA → 20.0 migration status
 
-Generated 2026-11-27 12:59 UTC · 47 repos · 2204 modules tracked
+Generated 2026-11-27 13:12 UTC · 47 repos · 2204 modules tracked
 
 ## Totals
 
@@ -16,68 +16,7 @@ Generated 2026-11-27 12:59 UTC · 47 repos · 2204 modules tracked
 
 ## Changes since last run
 
-### blocked-by-deps → todo (15)
-- account-invoicing/partner_invoicing_mode_monthly
-- crm/crm_claim_type
-- delivery-carrier/delivery_cttexpress
-- delivery-carrier/delivery_ups_oca
-- edi/base_import_pdf_by_template_account
-- edi/base_ubl_parse
-- edi/test_base_import_pdf_by_template
-- management-system/mgmtsystem_claim
-- multi-company/purchase_sale_lot_intercompany
-- pos/pos_user_restrict_stripe_bypass_user
-- project/project_group_hr_timesheet
-- project/sale_project_task_description_template
-- purchase-workflow/procurement_purchase_sale_no_grouping
-- purchase-workflow/purchase_work_acceptance_evaluation
-- purchase-workflow/purchase_work_acceptance_late_fines
-
-### new candidates (7)
-- contract/subscription_oca_rating
-- e-commerce/website_sale_product_publish_date
-- helpdesk/helpdesk_mgmt_partner_dashboard
-- product-attribute/product_cost_security_purchase
-- sale-workflow/sale_order_merge
-- sale-workflow/sale_stock_qty_by_warehouse
-- server-backend/base_external_dbsource_sap_hana
-
-### removed from report (20)
-- account-analytic/analytic_hr_department_restriction
-- account-invoicing/account_invoice_refund_link
-- account-invoicing/account_invoice_tax_required
-- dms/dms_auto_classification
-- dms/dms_field_auto_classification
-- knowledge/document_page_partner
-- manufacture/mrp_subcontracting_resupply_status
-- multi-company/account_multicompany_easy_creation
-- multi-company/crm_tag_multi_company
-- multi-company/partner_category_multi_company
-- multi-company/product_multi_company
-- pos/pos_config_logo
-- project/project_administrator_restricted_visibility
-- reporting-engine/report_qweb_parameter
-- server-tools/scheduler_error_mailer
-- timesheet/hr_timesheet_autofill_project_off
-- timesheet/hr_timesheet_task_domain
-- timesheet/sale_timesheet_invoice_link
-- web/web_dark_mode
-- web/web_remember_tree_column_width
-
-### todo → claimed-by-others (12)
-- account-financial-tools/account_lock_to_date
-- account-invoicing/account_invoice_date_due
-- account-invoicing/account_invoice_refund_reason
-- delivery-carrier/delivery_price_method
-- edi/base_import_pdf_by_template
-- knowledge/document_page_reference
-- multi-company/purchase_sale_stock_inter_company
-- partner-contact/partner_second_lastname
-- pos/pos_order_remove_line
-- pos/pos_user_restriction
-- purchase-workflow/purchase_requisition_line_description
-- purchase-workflow/purchase_work_acceptance
-
+_none_
 ## Per repo
 
 | repo | todo | skipped-relevancy | claimed-by-others | blocked-by-deps | pr-to-fork | merged-in-fork | ready-for-upstream-pr |
@@ -132,3 +71,7 @@ Generated 2026-11-27 12:59 UTC · 47 repos · 2204 modules tracked
 
 ## Notes from this run
 
+- 2026-11-27: the scan on file was a week old, so the sync workflow was triggered by hand; it succeeded (about 55 min).
+- Relevancy: 23 new modules judged `relevant` by an Opus subagent; none skipped.
+- Migration, review and repair: not run. This session had no add_repo tool, and the GitHub tools allow only BADEP/addons and BADEP/oca-migration-tools, so none of the BADEP forks could be reached with push access.
+- Human decision: attach every BADEP fork with push access to the scheduled task (same block as last week), or tell me which forks to prioritise.
